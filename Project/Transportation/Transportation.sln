@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transportation", "Transportation\Transportation.csproj", "{195FD809-C063-44F4-BA6F-C8CF105F4B1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{195FD809-C063-44F4-BA6F-C8CF105F4B1E}.Debug|x86.ActiveCfg = Debug|x86
+		{195FD809-C063-44F4-BA6F-C8CF105F4B1E}.Debug|x86.Build.0 = Debug|x86
+		{195FD809-C063-44F4-BA6F-C8CF105F4B1E}.Release|x86.ActiveCfg = Release|x86
+		{195FD809-C063-44F4-BA6F-C8CF105F4B1E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
