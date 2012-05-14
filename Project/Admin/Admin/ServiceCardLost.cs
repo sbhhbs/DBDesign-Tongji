@@ -55,10 +55,5 @@ namespace Admin
 
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
     }
 }
