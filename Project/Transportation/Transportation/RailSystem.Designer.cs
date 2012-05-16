@@ -37,33 +37,40 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(46, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(61, 61);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(505, 505);
+            this.pictureBox1.Size = new System.Drawing.Size(508, 509);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // OK
             // 
             this.OK.Image = ((System.Drawing.Image)(resources.GetObject("OK.Image")));
-            this.OK.Location = new System.Drawing.Point(688, 307);
+            this.OK.Location = new System.Drawing.Point(917, 384);
+            this.OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(73, 30);
+            this.OK.Size = new System.Drawing.Size(97, 38);
             this.OK.TabIndex = 1;
             this.OK.UseVisualStyleBackColor = true;
             // 
             // RailSystem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(784, 602);
+            this.ClientSize = new System.Drawing.Size(1045, 745);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RailSystem";
             this.Text = "地铁出行查询";
             this.Load += new System.EventHandler(this.RailSystem_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
