@@ -14,6 +14,9 @@ namespace Transportation
         public RailSystem()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
+            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -101,6 +104,13 @@ namespace Transportation
         private void Form1_Click(object sender, EventArgs e)
         {
             this.pictureBox1.Cursor = Cursors.SizeAll;
+        }
+
+        private void button_Return_Click(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Hide();
         }
     }
 }

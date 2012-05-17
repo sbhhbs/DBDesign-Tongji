@@ -9,3 +9,14 @@ C:\Users\sony\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\
 C:\Users\sony\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\sony\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.exe
 C:\Users\sony\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.pdb
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.exe
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.pdb
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\bin\Debug\Transportation.exe
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\bin\Debug\Transportation.pdb
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.MainPage.resources
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.Properties.Resources.resources
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.RailSystem.resources
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationView.resources
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\sony\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\GenerateResource.write.1.tlog
