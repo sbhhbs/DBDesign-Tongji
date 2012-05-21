@@ -7,16 +7,62 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Transportation
 {
     public partial class RailSystem : Form
     {
+        /// <summary>
+        /// 试图双缓冲
+        /// </summary>
+        private BufferedGraphicsContext context;
+
+        private BufferedGraphics grafx;
+
+
+
+        private byte bufferingMode;
+
+      
+
+
         public RailSystem()
+            : base()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.UserPaint, true);
+            if (!this.DoubleBuffered)
+                this.DoubleBuffered = true;
+           SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
             SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
+            //
+           
+
+        }
+
+        private void MouseDownHandler(object sender, MouseEventArgs e)
+        {
+
+
+                    this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+
+                this.Refresh();
+
+           
+        }
+        
+
+
+            
+
+
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+           // grafx.Graphics.FillRectangle(Brushes.Khaki, 0, 0, this.Width, this.Height);
+            grafx.Render(e.Graphics);
+            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -54,10 +100,29 @@ namespace Transportation
             mouseY = Cursor.Position.Y;
             picX = this.pictureBox1.Left;
             picY = this.pictureBox1.Top;
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
+            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
 
             //if (isMouseMoveEventAviable == false)
-            //    //添加鼠标移动事件
+                //添加鼠标移动事件
             this.pictureBox1.MouseMove += this.pictureBox1_MouseMove;
+            this.MouseDown += new MouseEventHandler(this.MouseDownHandler);
+
+        //    this.Resize += new EventHandler(this.OnResize);
+            bufferingMode = 2;
+            context = BufferedGraphicsManager.Current;
+;
+            grafx = context.Allocate(this.CreateGraphics(),
+
+                  new Rectangle(0, 0, this.Width, this.Height));
+            grafx.Graphics.FillRectangle(Brushes.Khaki, 0, 0, this.Width, this.Height);
+
+        
+
+
+
+           
         }
 
         ///

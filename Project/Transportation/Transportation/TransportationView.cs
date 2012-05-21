@@ -11,24 +11,21 @@ namespace Transportation
 {
     public partial class TransportationView : Form
     {
+        private BufferedGraphics grafx;
         public TransportationView()
         {
             InitializeComponent();
+            if (!this.DoubleBuffered)
+                this.DoubleBuffered = true;
+                     
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
             SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
         }
 
-        private void button_OK_Click(object sender, EventArgs e)
-        {
+     
 
-
-        }
-
-        private void TransportrationView_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -59,8 +56,23 @@ namespace Transportation
             //if (isMouseMoveEventAviable == false)
             //    //添加鼠标移动事件
             this.pictureBox1.MouseMove += this.pictureBox1_MouseMove;
+            ///
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
+            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
+            this.MouseDown += new MouseEventHandler(this.MouseDownHandler);
         }
+        private void MouseDownHandler(object sender, MouseEventArgs e)
+        {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+            this.Refresh();
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
 
+            grafx.Render(e.Graphics);
+
+        }
         ///
 
         /// 根据鼠标的移动的值，设置

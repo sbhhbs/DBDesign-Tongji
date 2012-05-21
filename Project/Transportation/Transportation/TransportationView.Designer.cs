@@ -78,7 +78,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransportationView";
             this.Text = "Transportration";
-            this.Load += new System.EventHandler(this.TransportrationView_Load);
+           // this.Load += new System.EventHandler(this.TransportrationView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
