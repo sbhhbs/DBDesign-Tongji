@@ -12,62 +12,22 @@ namespace Transportation
 {
     public partial class RailSystem : Form
     {
-        /// <summary>
-        /// 试图双缓冲
-        /// </summary>
-        private BufferedGraphicsContext context;
+        private bool isDown = false;
+        private bool isMiddleDown = false;
 
-        private BufferedGraphics grafx;
+        private Point currentPoint;
 
+        private int mapX = 0;
+        private int mapY = 0;
 
-
-        private byte bufferingMode;
-
-      
-
-
-        public RailSystem()
-            : base()
+        public RailSystem() : base()
         {
             InitializeComponent();
-            if (!this.DoubleBuffered)
-                this.DoubleBuffered = true;
-           SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
-            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
-            //
-           
-
         }
 
-        private void MouseDownHandler(object sender, MouseEventArgs e)
+        private void Form1_Click(object sender, EventArgs e)
         {
-
-
-                    this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
-
-                this.Refresh();
-
-           
-        }
-        
-
-
-            
-
-
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-           // grafx.Graphics.FillRectangle(Brushes.Khaki, 0, 0, this.Width, this.Height);
-            grafx.Render(e.Graphics);
-            
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            map.Cursor = Cursors.SizeAll;
         }
 
         private void RailSystem_Load(object sender, EventArgs e)
@@ -79,103 +39,136 @@ namespace Transportation
         {
             Application.Exit();
         }
-        /// 设置鼠标单击的坐标，以及图片的坐标
-        /// 
-        int mouseX;
-        int mouseY;
-        int picX;
-        int picY;
 
-        ///
-
-
-        /// 当鼠标单击时，给鼠标设定值。初始化。
-        ///
-
-        /// 
-        /// 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private void map_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseX = Cursor.Position.X;
-            mouseY = Cursor.Position.Y;
-            picX = this.pictureBox1.Left;
-            picY = this.pictureBox1.Top;
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
-            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
-
-            //if (isMouseMoveEventAviable == false)
-                //添加鼠标移动事件
-            this.pictureBox1.MouseMove += this.pictureBox1_MouseMove;
-            this.MouseDown += new MouseEventHandler(this.MouseDownHandler);
-
-        //    this.Resize += new EventHandler(this.OnResize);
-            bufferingMode = 2;
-            context = BufferedGraphicsManager.Current;
-;
-            grafx = context.Allocate(this.CreateGraphics(),
-
-                  new Rectangle(0, 0, this.Width, this.Height));
-            grafx.Graphics.FillRectangle(Brushes.Khaki, 0, 0, this.Width, this.Height);
-
-        
-
-
-
-           
+            isDown = false;
+            
+            Cursor.Clip = Screen.PrimaryScreen.Bounds;
+            Cursor = Cursors.Default;
+            
         }
 
-        ///
-
-        /// 根据鼠标的移动的值，设置
-        ///
-
-        /// 
-        /// 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        private void map_MouseMove(object sender, MouseEventArgs e)
         {
-            int y = Cursor.Position.Y - mouseY + picY;
-            int x = Cursor.Position.X - mouseX + picX;
-            if (e.Button == MouseButtons.Left)
+            if (isDown || isMiddleDown)
             {
-                this.pictureBox1.Top = y;
-                this.pictureBox1.Left = x;
+                Point mapPoint = new Point(map.Left, map.Top);
+
+                mapPoint = PointToScreen(mapPoint);
+
+                Point middlePoint = new Point(( 2 * mapPoint.X + map.Width) / 2, (2 * mapPoint.Y + map.Height) / 2);
+
+                Rectangle rect = new Rectangle(mapPoint.X, mapPoint.Y, map.Width, map.Height);
+
+                Cursor.Clip = rect;
+
+                int dx = Control.MousePosition.X - currentPoint.X;
+                int dy = Control.MousePosition.Y - currentPoint.Y;
+
+                currentPoint.X = Control.MousePosition.X;
+                currentPoint.Y = Control.MousePosition.Y;
+
+                Image image = map.Image;
+
+                Graphics graphics = map.CreateGraphics();
+
+                if (isDown)
+                {
+                    if (mapX + dx < map.Width - image.Width + 10)
+                        mapX = map.Width - image.Width + 10;
+                    else if (mapX + dx >= 0)
+                        mapX = 0;
+                    else
+                        mapX += dx;
+
+                    if (mapY + dy < map.Height - image.Height + 10)
+                        mapY = map.Height - image.Height + 10;
+                    else if (mapY + dy >= 0)
+                        mapY = 0;
+                    else
+                        mapY += dy;
+                }
+                else if (isMiddleDown)
+                {
+                    if (dx > 0 && mapX - dx >= map.Width - image.Width + 10)
+                    {
+                        mapX = mapX - dx;
+                    }
+                    else if (dx < 0 && mapX - dx <= 0)
+                    {
+                        mapX = mapX - dx;
+                    }
+
+                    if (dy > 0 && mapY - dy >= map.Height - image.Height + 10)
+                    {
+                        mapY = mapY - dy;
+                    }
+                    else if (dy < 0 && mapY - dy <= 0)
+                    {
+                        mapY = mapY - dy;
+                    }
+
+                    if (currentPoint.X < middlePoint.X && currentPoint.Y == middlePoint.Y)
+                        Cursor = Cursors.PanWest;
+                    else if (currentPoint.X > middlePoint.X && currentPoint.Y == middlePoint.Y)
+                        Cursor = Cursors.PanEast;
+                    else if (currentPoint.Y < middlePoint.Y && currentPoint.X == middlePoint.X)
+                        Cursor = Cursors.PanNorth;
+                    else if (currentPoint.Y > middlePoint.Y && currentPoint.X == middlePoint.X)
+                        Cursor = Cursors.PanSouth;
+                    else if (currentPoint.Y > middlePoint.Y && currentPoint.X > middlePoint.X)
+                        Cursor = Cursors.PanSE;
+                    else if (currentPoint.Y > middlePoint.Y && currentPoint.X < middlePoint.X)
+                        Cursor = Cursors.PanSW;
+                    else if (currentPoint.Y < middlePoint.Y && currentPoint.X > middlePoint.X)
+                        Cursor = Cursors.PanNE;
+                    else if (currentPoint.Y < middlePoint.Y && currentPoint.X < middlePoint.X)
+                        Cursor = Cursors.PanNW;
+
+                }
+
+                graphics.DrawImage(image, mapX, mapY);
+                graphics.Dispose();
             }
         }
 
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void map_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseX = 0;
-            mouseY = 0;
-            if (this.pictureBox1.Location.X < 0)
+            switch (e.Button)
             {
-                this.pictureBox1.Left = 0;
+                case MouseButtons.Left:
+                    isDown = true;
 
+                    currentPoint.X = Control.MousePosition.X;
+                    currentPoint.Y = Control.MousePosition.Y;
+
+                    break;
+                case MouseButtons.Middle:
+                    isDown = false;
+                    isMiddleDown = !isMiddleDown;
+
+                    currentPoint.X = Control.MousePosition.X;
+                    currentPoint.Y = Control.MousePosition.Y;
+
+                    break;
+
+                default:
+                    break;
             }
-            if (this.pictureBox1.Location.Y < 0)
-            {
-                this.pictureBox1.Top = 0;
-            }
-            if ((this.pictureBox1.Left + this.pictureBox1.Width) > this.ClientSize.Width)
-            {
-                this.pictureBox1.Left = this.ClientSize.Width - this.pictureBox1.Width;
-            }
-            if ((this.pictureBox1.Top + this.pictureBox1.Height) > this.ClientSize.Height)
-            {
-                this.pictureBox1.Top = this.ClientSize.Height - this.pictureBox1.Height;
-            }
+
+
         }
 
-        private void Form1_Click(object sender, EventArgs e)
+        private void map_Click(object sender, EventArgs e)
         {
-            this.pictureBox1.Cursor = Cursors.SizeAll;
+
         }
 
-        private void button_Return_Click(object sender, EventArgs e)
+        private void map_Paint()
         {
-            MainPage mainPage = new MainPage();
-            mainPage.Show();
-            this.Hide();
+
         }
+
     }
 }

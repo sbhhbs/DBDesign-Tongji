@@ -11,112 +11,74 @@ namespace Transportation
 {
     public partial class TransportationView : Form
     {
-        private BufferedGraphics grafx;
+        private bool isDown = false;
+        private Point currentPoint;
+
+        private int mapX = 0;
+        private int mapY = 0;
+
         public TransportationView()
         {
             InitializeComponent();
-            if (!this.DoubleBuffered)
-                this.DoubleBuffered = true;
-                     
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
-            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.SetStyle(ControlStyles.DoubleBuffer, true); 
         }
-
-     
-
-      
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
         }
-        /// 设置鼠标单击的坐标，以及图片的坐标
-        /// 
-        int mouseX;
-        int mouseY;
-        int picX;
-        int picY;
 
-        ///
-
-
-        /// 当鼠标单击时，给鼠标设定值。初始化。
-        ///
-
-        /// 
-        /// 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private void map_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseX = Cursor.Position.X;
-            mouseY = Cursor.Position.Y;
-            picX = this.pictureBox1.Left;
-            picY = this.pictureBox1.Top;
-
-            //if (isMouseMoveEventAviable == false)
-            //    //添加鼠标移动事件
-            this.pictureBox1.MouseMove += this.pictureBox1_MouseMove;
-            ///
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);  //  禁止擦除背景. 
-            SetStyle(ControlStyles.DoubleBuffer, true);  //  双缓冲 
-            this.MouseDown += new MouseEventHandler(this.MouseDownHandler);
+            isDown = false;
         }
-        private void MouseDownHandler(object sender, MouseEventArgs e)
+
+        private void map_MouseMove(object sender, MouseEventArgs e)
         {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
-            this.Refresh();
-        }
-        protected override void OnPaint(PaintEventArgs e)
-        {
-
-            grafx.Render(e.Graphics);
-
-        }
-        ///
-
-        /// 根据鼠标的移动的值，设置
-        ///
-
-        /// 
-        /// 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            int y = Cursor.Position.Y - mouseY + picY;
-            int x = Cursor.Position.X - mouseX + picX;
-            if (e.Button == MouseButtons.Left)
+            if (isDown)
             {
-                this.pictureBox1.Top = y;
-                this.pictureBox1.Left = x;
+                int dx = Control.MousePosition.X - currentPoint.X;
+                int dy = Control.MousePosition.Y - currentPoint.Y;
+
+                currentPoint.X = Control.MousePosition.X;
+                currentPoint.Y = Control.MousePosition.Y;
+
+                Image image = map.Image;
+
+                Graphics graphics = map.CreateGraphics();
+
+                if (mapX + dx < map.Width - image.Width)
+                    mapX = map.Width - image.Width;
+                else if (mapX + dx >= 0)
+                    mapX = 0;
+                else
+                    mapX += dx;
+
+                if (mapY + dy < map.Height - image.Height)
+                    mapY = map.Height - image.Height;
+                else if (mapY + dy >= 0)
+                    mapY = 0;
+                else
+                    mapY += dy;
+
+                graphics.DrawImage(image, mapX, mapY);
+                graphics.Dispose();
             }
         }
 
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void map_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseX = 0;
-            mouseY = 0;
-            if (this.pictureBox1.Location.X < 0)
-            {
-                this.pictureBox1.Left = 0;
+            isDown = true;
 
-            }
-            if (this.pictureBox1.Location.Y < 0)
-            {
-                this.pictureBox1.Top = 0;
-            }
-            if ((this.pictureBox1.Left + this.pictureBox1.Width) > this.ClientSize.Width)
-            {
-                this.pictureBox1.Left = this.ClientSize.Width - this.pictureBox1.Width;
-            }
-            if ((this.pictureBox1.Top + this.pictureBox1.Height) > this.ClientSize.Height)
-            {
-                this.pictureBox1.Top = this.ClientSize.Height - this.pictureBox1.Height;
-            }
+            currentPoint.X = Control.MousePosition.X;
+            currentPoint.Y = Control.MousePosition.Y;
+
         }
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            this.pictureBox1.Cursor = Cursors.SizeAll;
+            this.map.Cursor = Cursors.SizeAll;
         }
 
         private void button_Return_Click(object sender, EventArgs e)
@@ -124,6 +86,21 @@ namespace Transportation
             MainPage mainPage = new MainPage();
             mainPage.Show();
             this.Hide();
+        }
+
+        private void TransportationView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void map_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void map_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
