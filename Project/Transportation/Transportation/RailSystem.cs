@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace Transportation
@@ -16,6 +17,7 @@ namespace Transportation
         private bool isMiddleDown = false;
 
         private Point currentPoint;
+        private Point orgPoint;
 
         private int mapX = 0;
         private int mapY = 0;
@@ -23,6 +25,11 @@ namespace Transportation
         public RailSystem() : base()
         {
             InitializeComponent();
+
+            orgPoint.X = map.Left;
+            orgPoint.Y = map.Top;
+
+            orgPoint = PointToScreen(orgPoint);
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -157,6 +164,17 @@ namespace Transportation
                     break;
             }
 
+            Point outputPoint = new Point(1, 1);
+
+            outputPoint.X = currentPoint.X - orgPoint.X - mapX;
+            outputPoint.Y = currentPoint.Y - orgPoint.Y - mapY;
+
+            StreamWriter sw = File.AppendText("c:\\myText.txt");
+
+            sw.WriteLine(outputPoint.X + "," + outputPoint.Y + " ");
+
+            sw.Flush();
+            sw.Close();
 
         }
 
