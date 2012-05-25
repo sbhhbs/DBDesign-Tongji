@@ -1,0 +1,16 @@
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Admin.exe
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Admin.pdb
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.MainPage.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.Properties.Resources.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceCardLost.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceChange.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceHistory.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceRecharge.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.Services.resources
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.exe
+C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.exe
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
