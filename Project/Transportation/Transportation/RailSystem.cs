@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 
 namespace Transportation
@@ -22,6 +23,8 @@ namespace Transportation
         private int mapX = 0;
         private int mapY = 0;
 
+        private Hashtable pointTable = new Hashtable(); 
+
         public RailSystem() : base()
         {
             InitializeComponent();
@@ -30,6 +33,37 @@ namespace Transportation
             orgPoint.Y = map.Top;
 
             orgPoint = PointToScreen(orgPoint);
+
+            StreamReader f2 = new StreamReader("..\\..\\assets\\points.txt", System.Text.Encoding.GetEncoding("gb2312"));
+
+            String temp;
+            while (!f2.EndOfStream)
+            {
+                Point tempPoint = new Point(0, 0);
+
+                temp = f2.ReadLine();
+                int start = 0;
+                int end = 0;
+                while (temp[++end] != ',') ;
+
+                tempPoint.X = int.Parse(temp.Substring(start, end - start));
+
+                start = end + 1;
+                end = start;
+
+                while (temp[++end] != ' ') ;
+
+                tempPoint.Y = int.Parse(temp.Substring(start, end - start));
+
+                start = end + 1;
+
+                String location = temp.Substring(start);
+
+                pointTable.Add(tempPoint, location);
+
+            }
+
+            f2.Close();
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -138,6 +172,20 @@ namespace Transportation
                 graphics.DrawImage(image, mapX, mapY);
                 graphics.Dispose();
             }
+            else
+            {
+                Point temp = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+                temp.X -= orgPoint.X - mapX;
+                temp.Y -= orgPoint.Y - mapY;
+
+                if (pointTable.Contains(temp) || pointTable.Contains(new Point(temp.X - 1, temp.Y)) || pointTable.Contains(new Point(temp.X, temp.Y - 1)) ||
+                    pointTable.Contains(new Point(temp.X + 1, temp.Y))|| pointTable.Contains(new Point(temp.X, temp.Y + 1)))
+                {
+                    Cursor = Cursors.Hand;
+                }
+                else
+                    Cursor = Cursors.Default;
+            }
         }
 
         private void map_MouseDown(object sender, MouseEventArgs e)
@@ -163,19 +211,6 @@ namespace Transportation
                 default:
                     break;
             }
-
-            Point outputPoint = new Point(1, 1);
-
-            outputPoint.X = currentPoint.X - orgPoint.X - mapX;
-            outputPoint.Y = currentPoint.Y - orgPoint.Y - mapY;
-
-            StreamWriter sw = File.AppendText("c:\\myText.txt");
-
-            sw.WriteLine(outputPoint.X + "," + outputPoint.Y + " ");
-
-            sw.Flush();
-            sw.Close();
-
         }
 
         private void map_Click(object sender, EventArgs e)
@@ -184,6 +219,11 @@ namespace Transportation
         }
 
         private void map_Paint()
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
