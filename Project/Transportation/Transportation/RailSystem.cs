@@ -23,7 +23,9 @@ namespace Transportation
         private int mapX = 0;
         private int mapY = 0;
 
-        private Hashtable pointTable = new Hashtable(); 
+        private Point currentPlace;
+
+        private Hashtable pointTable = new Hashtable();
 
         public RailSystem() : base()
         {
@@ -87,7 +89,20 @@ namespace Transportation
             
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
             Cursor = Cursors.Default;
-            
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            Graphics graphics = map.CreateGraphics();
+
+            Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+            bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+            graphics.DrawImage(bitmap, mapX, mapY);
+
+            graphics.Dispose();
         }
 
         private void map_MouseMove(object sender, MouseEventArgs e)
@@ -110,21 +125,22 @@ namespace Transportation
                 currentPoint.X = Control.MousePosition.X;
                 currentPoint.Y = Control.MousePosition.Y;
 
-                Image image = map.Image;
-
                 Graphics graphics = map.CreateGraphics();
+
+                Image image = map.Image;
+                
 
                 if (isDown)
                 {
-                    if (mapX + dx < map.Width - image.Width + 10)
-                        mapX = map.Width - image.Width + 10;
+                    if (mapX + dx < map.Width - image.Width)
+                        mapX = map.Width - image.Width;
                     else if (mapX + dx >= 0)
                         mapX = 0;
                     else
                         mapX += dx;
 
-                    if (mapY + dy < map.Height - image.Height + 10)
-                        mapY = map.Height - image.Height + 10;
+                    if (mapY + dy < map.Height - image.Height)
+                        mapY = map.Height - image.Height;
                     else if (mapY + dy >= 0)
                         mapY = 0;
                     else
@@ -168,23 +184,34 @@ namespace Transportation
                         Cursor = Cursors.PanNW;
 
                 }
+                Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+                bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
-                graphics.DrawImage(image, mapX, mapY);
+                graphics.DrawImage(bitmap, mapX, mapY);
                 graphics.Dispose();
             }
             else
             {
                 Point temp = new Point(Control.MousePosition.X, Control.MousePosition.Y);
-                temp.X -= orgPoint.X - mapX;
-                temp.Y -= orgPoint.Y - mapY;
 
-                if (pointTable.Contains(temp) || pointTable.Contains(new Point(temp.X - 1, temp.Y)) || pointTable.Contains(new Point(temp.X, temp.Y - 1)) ||
-                    pointTable.Contains(new Point(temp.X + 1, temp.Y))|| pointTable.Contains(new Point(temp.X, temp.Y + 1)))
-                {
-                    Cursor = Cursors.Hand;
-                }
-                else
-                    Cursor = Cursors.Default;
+                temp.X = temp.X - orgPoint.X - mapX;
+                temp.Y = temp.Y - orgPoint.Y - mapY;
+
+                // Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
+
+                for (int i = -2; i != 3; i++)
+                    for (int j = -2; j != 3; j++)
+                    {
+                        if (pointTable.Contains(new Point(temp.X + i, temp.Y + j)))
+                        {
+                            currentPlace = new Point(temp.X + i, temp.Y + j);
+                            Cursor = Cursors.Hand;
+                            return;
+                        }
+                    }
+
+                Cursor = Cursors.Default;
+                currentPlace = new Point(-1, -1);
             }
         }
 
@@ -197,6 +224,9 @@ namespace Transportation
 
                     currentPoint.X = Control.MousePosition.X;
                     currentPoint.Y = Control.MousePosition.Y;
+
+                    if (currentPlace.X != -1 && currentPlace.Y != -1)
+                        startPos.Text = (string)pointTable[currentPlace];
 
                     break;
                 case MouseButtons.Middle:
