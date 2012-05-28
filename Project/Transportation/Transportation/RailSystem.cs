@@ -116,15 +116,15 @@ namespace Transportation
 
                 if (isDown)
                 {
-                    if (mapX + dx < map.Width - image.Width + 10)
-                        mapX = map.Width - image.Width + 10;
+                    if (mapX + dx < map.Width - image.Width)
+                        mapX = map.Width - image.Width;
                     else if (mapX + dx >= 0)
                         mapX = 0;
                     else
                         mapX += dx;
 
-                    if (mapY + dy < map.Height - image.Height + 10)
-                        mapY = map.Height - image.Height + 10;
+                    if (mapY + dy < map.Height - image.Height)
+                        mapY = map.Height - image.Height;
                     else if (mapY + dy >= 0)
                         mapY = 0;
                     else
@@ -175,16 +175,23 @@ namespace Transportation
             else
             {
                 Point temp = new Point(Control.MousePosition.X, Control.MousePosition.Y);
-                temp.X -= orgPoint.X - mapX;
-                temp.Y -= orgPoint.Y - mapY;
 
-                if (pointTable.Contains(temp) || pointTable.Contains(new Point(temp.X - 1, temp.Y)) || pointTable.Contains(new Point(temp.X, temp.Y - 1)) ||
-                    pointTable.Contains(new Point(temp.X + 1, temp.Y))|| pointTable.Contains(new Point(temp.X, temp.Y + 1)))
-                {
-                    Cursor = Cursors.Hand;
-                }
-                else
-                    Cursor = Cursors.Default;
+                temp.X = temp.X - orgPoint.X - mapX;
+                temp.Y = temp.Y - orgPoint.Y - mapY;
+
+                Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
+
+                for (int i = -2; i != 3; i++)
+                    for (int j = -2; j != 3; j++)
+                    {
+                        if (pointTable.Contains(new Point(temp.X + i, temp.Y + j)))
+                        {
+                            Cursor = Cursors.Hand;
+                            return;
+                        }
+                    }
+
+                Cursor = Cursors.Default;
             }
         }
 
