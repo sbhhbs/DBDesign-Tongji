@@ -87,7 +87,17 @@ namespace Transportation
             
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
             Cursor = Cursors.Default;
-            
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            Graphics graphics = map.CreateGraphics();
+            Image image = map.Image;
+
+            graphics.DrawImage(image, mapX, mapY);
+            graphics.Dispose();
         }
 
         private void map_MouseMove(object sender, MouseEventArgs e)
