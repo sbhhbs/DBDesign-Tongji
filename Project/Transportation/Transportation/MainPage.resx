@@ -121,7 +121,7 @@
   <data name="railSystemButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQIAAAAqCAIAAADXpcLoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAGYktHRAD/AP8A/6C9p5MAABu0SURBVHhe7Z13dBTXvcf1
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAGYktHRAD/AP8A/6C9p5MAABu0SURBVHhe7Z13dBTXvcf1
         F9t3Z7Wr3nsvqIAQAgGigykGgwFjU2zjXjBgVFa9N4RABYRAooNANNObwQaMaQbbie04TuLkvcTxSd57
         eS//v8/MNeuNRJEgJwGke75nz+zMvXfuzHy/v3LvrOR0/fOvP7n2+fmLV0+fu3Ts1LnDx88cPHJy36Fj
         nQeO7N1/eM++Dx4ddHR+0NF5+CfsO9wh4wjY3Slj116Bozv3HNm5h08FHQLHduw+KqPj2PbdR7ftsuPY
@@ -246,7 +246,7 @@
   <data name="transportSystemButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQIAAAArCAIAAAAc+RFNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAGYktHRAD/AP8A/6C9p5MAAB3TSURBVHhe7Z13VFVXvsf5
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAGYktHRAD/AP8A/6C9p5MAAB3TSURBVHhe7Z13VFVXvsf5
         a2aMXC63waWJSBGkS1OxoIjYa2wxdpMYk5hqlN6rKHYQKYqKiNgVFRsWQFAsYMskpmcmM5n35s28N/+/
         zzlbjjcQDcRZsxTY67vuOvfcfc7Ze5/v91f22fdesyGhQ4OCQwKDggMDgwICAv0HBvj5D+wUfP38/8Pw
         8fXrHHx8fToGb2+fjsPLy7sj8PTy7jgGeHp1EB4DPDsId48BHYK7h3sn0b+/e6fg5tb/eeDq5vabIa5L
@@ -424,7 +424,7 @@
         RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
         lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
         f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
-        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALDQAACw0B7QfALAAA9UFJREFUeF7s/Xe0HNdx
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALDAAACwwBP0AiyAAA9UFJREFUeF7s/Xe0HNdx
         7g3fta5tiUFMwMk5gcg5k8iByDmSAAkQgRkEM8WcJeYoZjFIYhaVKFFUlmUxOCqSlmzJsoKD7Gtburbf
         e9/3+6O+qj3zzHmm0HMwAA4OgTN11uo1c3q6d+9Q3f38qnb4H11dXRJb1EHYQNhA2EDYQNhA2EDYQNhA
         2EDYQF/YwP/oi4vENcKYwwbCBsIGwgbCBsIGwgbCBsIGwgbMBgJAIgIUEbCwgbCBsIGwgbCBsIGwgbCB

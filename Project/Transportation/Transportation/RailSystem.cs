@@ -23,7 +23,9 @@ namespace Transportation
         private int mapX = 0;
         private int mapY = 0;
 
-        private Hashtable pointTable = new Hashtable(); 
+        private Point currentPlace;
+
+        private Hashtable pointTable = new Hashtable();
 
         public RailSystem() : base()
         {
@@ -94,9 +96,12 @@ namespace Transportation
             base.OnPaint(e);
 
             Graphics graphics = map.CreateGraphics();
-            Image image = map.Image;
 
-            graphics.DrawImage(image, mapX, mapY);
+            Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+            bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+            graphics.DrawImage(bitmap, mapX, mapY);
+
             graphics.Dispose();
         }
 
@@ -120,9 +125,10 @@ namespace Transportation
                 currentPoint.X = Control.MousePosition.X;
                 currentPoint.Y = Control.MousePosition.Y;
 
-                Image image = map.Image;
-
                 Graphics graphics = map.CreateGraphics();
+
+                Image image = map.Image;
+                
 
                 if (isDown)
                 {
@@ -178,8 +184,10 @@ namespace Transportation
                         Cursor = Cursors.PanNW;
 
                 }
+                Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+                bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
-                graphics.DrawImage(image, mapX, mapY);
+                graphics.DrawImage(bitmap, mapX, mapY);
                 graphics.Dispose();
             }
             else
@@ -189,19 +197,21 @@ namespace Transportation
                 temp.X = temp.X - orgPoint.X - mapX;
                 temp.Y = temp.Y - orgPoint.Y - mapY;
 
-                Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
+                // Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
 
                 for (int i = -2; i != 3; i++)
                     for (int j = -2; j != 3; j++)
                     {
                         if (pointTable.Contains(new Point(temp.X + i, temp.Y + j)))
                         {
+                            currentPlace = new Point(temp.X + i, temp.Y + j);
                             Cursor = Cursors.Hand;
                             return;
                         }
                     }
 
                 Cursor = Cursors.Default;
+                currentPlace = new Point(-1, -1);
             }
         }
 
@@ -214,6 +224,9 @@ namespace Transportation
 
                     currentPoint.X = Control.MousePosition.X;
                     currentPoint.Y = Control.MousePosition.Y;
+
+                    if (currentPlace.X != -1 && currentPlace.Y != -1)
+                        startPos.Text = (string)pointTable[currentPlace];
 
                     break;
                 case MouseButtons.Middle:
