@@ -245,7 +245,8 @@ namespace Transportation
 
         private void map_Click(object sender, EventArgs e)
         {
-
+            Rail_Dialog rail_dialog = new Rail_Dialog();
+            rail_dialog.Show();
         }
 
         private void map_Paint()

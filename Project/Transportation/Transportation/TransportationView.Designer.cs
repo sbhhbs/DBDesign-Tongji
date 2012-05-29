@@ -38,9 +38,10 @@
             // map
             // 
             this.map.Image = ((System.Drawing.Image)(resources.GetObject("map.Image")));
-            this.map.Location = new System.Drawing.Point(52, 51);
+            this.map.Location = new System.Drawing.Point(49, 48);
+            this.map.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(497, 505);
+            this.map.Size = new System.Drawing.Size(494, 506);
             this.map.TabIndex = 1;
             this.map.TabStop = false;
             this.map.Click += new System.EventHandler(this.map_Click_1);
@@ -51,18 +52,19 @@
             // button_OK
             // 
             this.button_OK.Image = ((System.Drawing.Image)(resources.GetObject("button_OK.Image")));
-            this.button_OK.Location = new System.Drawing.Point(683, 287);
+            this.button_OK.Location = new System.Drawing.Point(911, 359);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(73, 30);
+            this.button_OK.Size = new System.Drawing.Size(97, 38);
             this.button_OK.TabIndex = 2;
             this.button_OK.UseVisualStyleBackColor = true;
             // 
             // button_Return
             // 
-            this.button_Return.Location = new System.Drawing.Point(683, 335);
-            this.button_Return.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Return.Location = new System.Drawing.Point(911, 419);
+            this.button_Return.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Return.Name = "button_Return";
-            this.button_Return.Size = new System.Drawing.Size(73, 30);
+            this.button_Return.Size = new System.Drawing.Size(97, 38);
             this.button_Return.TabIndex = 3;
             this.button_Return.Text = "返回";
             this.button_Return.UseVisualStyleBackColor = true;
@@ -70,13 +72,14 @@
             // 
             // TransportationView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(784, 602);
+            this.ClientSize = new System.Drawing.Size(809, 589);
             this.Controls.Add(this.button_Return);
             this.Controls.Add(this.button_OK);
             this.Controls.Add(this.map);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TransportationView";
             this.Text = "Transportration";
             this.Load += new System.EventHandler(this.TransportationView_Load);
