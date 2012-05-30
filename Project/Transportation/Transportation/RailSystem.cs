@@ -18,6 +18,8 @@ namespace Transportation
         private bool isMiddleDown = false;
 
         private Point currentPoint;
+        private Point storecurrentPoint1;
+        private Point storecurrentPoint2;
         private Point orgPoint;
 
         private int mapX = 0;
@@ -82,6 +84,10 @@ namespace Transportation
         {
             Application.Exit();
         }
+        public static void createDialog()
+        {
+            //createDialog cd = new createDialog();
+        }
 
         private void map_MouseUp(object sender, MouseEventArgs e)
         {
@@ -89,6 +95,11 @@ namespace Transportation
             
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
             Cursor = Cursors.Default;
+            if (storecurrentPoint2 == storecurrentPoint1)
+            {
+                Rail_Dialog rail_dialog = new Rail_Dialog();//出现对话框
+                rail_dialog.Show();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -124,6 +135,8 @@ namespace Transportation
 
                 currentPoint.X = Control.MousePosition.X;
                 currentPoint.Y = Control.MousePosition.Y;
+                storecurrentPoint2.X = currentPoint.X;
+                storecurrentPoint2.Y = currentPoint.Y;
 
                 Graphics graphics = map.CreateGraphics();
 
@@ -133,18 +146,37 @@ namespace Transportation
                 if (isDown)
                 {
                     if (mapX + dx < map.Width - image.Width)
+                    {
                         mapX = map.Width - image.Width;
+                       
+                    }
                     else if (mapX + dx >= 0)
+                    {
                         mapX = 0;
+                      
+                    }
                     else
+                    {
                         mapX += dx;
+                
+                    }
 
                     if (mapY + dy < map.Height - image.Height)
+                    {
                         mapY = map.Height - image.Height;
+                  
+                    }
                     else if (mapY + dy >= 0)
+                    {
                         mapY = 0;
+             
+                    }
                     else
+                    {
                         mapY += dy;
+             
+                        
+                    }
                 }
                 else if (isMiddleDown)
                 {
@@ -199,7 +231,7 @@ namespace Transportation
 
                 // Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
 
-                for (int i = -2; i != 3; i++)
+                for (int i = -2; i != 3; i++)//放大鼠标的检测范围
                     for (int j = -2; j != 3; j++)
                     {
                         if (pointTable.Contains(new Point(temp.X + i, temp.Y + j)))
@@ -224,9 +256,15 @@ namespace Transportation
 
                     currentPoint.X = Control.MousePosition.X;
                     currentPoint.Y = Control.MousePosition.Y;
+                    /////////////////////////
+                    storecurrentPoint1.X = currentPoint.X;
+                    storecurrentPoint1.Y = currentPoint.Y;
+                    Console.WriteLine("Current relative Pos 9999: " + storecurrentPoint1.X + "," + storecurrentPoint1.Y);
+
+                    
 
                     if (currentPlace.X != -1 && currentPlace.Y != -1)
-                        startPos.Text = (string)pointTable[currentPlace];
+                        startPos.Text = (string)pointTable[currentPlace];//设置起点
 
                     break;
                 case MouseButtons.Middle:
@@ -245,8 +283,7 @@ namespace Transportation
 
         private void map_Click(object sender, EventArgs e)
         {
-            Rail_Dialog rail_dialog = new Rail_Dialog();
-            rail_dialog.Show();
+           
         }
 
         private void map_Paint()

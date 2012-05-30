@@ -41,6 +41,7 @@
             this.button_In.TabIndex = 0;
             this.button_In.Text = "进站";
             this.button_In.UseVisualStyleBackColor = true;
+            this.button_In.Click += new System.EventHandler(this.button_In_Click);
             // 
             // button_Out
             // 
@@ -50,6 +51,7 @@
             this.button_Out.TabIndex = 1;
             this.button_Out.Text = "出站";
             this.button_Out.UseVisualStyleBackColor = true;
+            this.button_Out.Click += new System.EventHandler(this.button_Out_Click);
             // 
             // label1
             // 
