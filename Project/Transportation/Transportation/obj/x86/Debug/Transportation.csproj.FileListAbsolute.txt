@@ -54,3 +54,5 @@ C:\Users\GUN\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Trans
 C:\Users\GUN\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationView.resources
 C:\Users\GUN\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\GUN\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\资料\项目\公交系统项目\Repository\Project\Transportation\Transportation\obj\x86\Debug\Transportation.exe
+E:\资料\项目\公交系统项目\Repository\Project\Transportation\Transportation\obj\x86\Debug\Transportation.pdb

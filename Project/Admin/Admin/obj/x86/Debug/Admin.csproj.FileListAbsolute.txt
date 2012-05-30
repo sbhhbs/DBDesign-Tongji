@@ -14,3 +14,5 @@ C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ex
 C:\Users\sony\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.exe
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
+E:\资料\项目\公交系统项目\Repository\Project\Admin\Admin\obj\x86\Debug\Admin.exe
+E:\资料\项目\公交系统项目\Repository\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
