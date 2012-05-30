@@ -84,21 +84,23 @@ namespace Transportation
         {
             Application.Exit();
         }
-        public static void createDialog()
-        {
-            //createDialog cd = new createDialog();
-        }
-
+       
+      
         private void map_MouseUp(object sender, MouseEventArgs e)
         {
             isDown = false;
             
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
             Cursor = Cursors.Default;
+
+            
             if (storecurrentPoint2 == storecurrentPoint1)
             {
-                Rail_Dialog rail_dialog = new Rail_Dialog();//出现对话框
-                rail_dialog.Show();
+                Dialog dialog = Factor.createDialog();
+                dialog.show();
+               // dialog.hide();
+
+                
             }
         }
 
@@ -294,7 +296,8 @@ namespace Transportation
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
+        } 
 
     }
+  
 }

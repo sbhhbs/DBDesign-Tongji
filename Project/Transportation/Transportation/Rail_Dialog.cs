@@ -30,5 +30,41 @@ namespace Transportation
             this.DialogResult = DialogResult.Cancel;
         
         }
+        
+    }
+      class Factor
+    {
+        private static Dialog dialog = null;
+
+        public static Dialog createDialog()
+        {
+            if(dialog == null)
+            {
+                dialog = new Dialog();
+            }
+            return dialog;
+        }
+    }
+    class Dialog:Form
+    {
+        Rail_Dialog rail_dialog = new Rail_Dialog();
+        public Dialog()
+        {
+           //Rail_Dialog rail_dialog = new Rail_Dialog();
+            //rail_dialog.show();
+        }
+        public void show() 
+        {
+            rail_dialog.Show();
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            rail_dialog.Hide();
+        }
+        public void hide()
+        {
+            rail_dialog.Hide();
+        }
+            
     }
 }
