@@ -60,6 +60,12 @@
     <Compile Include="RailSystem.Designer.cs">
       <DependentUpon>RailSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rail_Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rail_Dialog.Designer.cs">
+      <DependentUpon>Rail_Dialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransportationView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="RailSystem.resx">
       <DependentUpon>RailSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rail_Dialog.resx">
+      <DependentUpon>Rail_Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransportationView.resx">
       <DependentUpon>TransportationView.cs</DependentUpon>

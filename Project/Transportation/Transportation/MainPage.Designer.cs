@@ -39,7 +39,7 @@
             this.railSystemButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.railSystemButton.FlatAppearance.BorderSize = 0;
             this.railSystemButton.Image = ((System.Drawing.Image)(resources.GetObject("railSystemButton.Image")));
-            this.railSystemButton.Location = new System.Drawing.Point(307, 188);
+            this.railSystemButton.Location = new System.Drawing.Point(306, 189);
             this.railSystemButton.Name = "railSystemButton";
             this.railSystemButton.Size = new System.Drawing.Size(194, 34);
             this.railSystemButton.TabIndex = 0;
@@ -52,7 +52,7 @@
             this.transportSystemButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.transportSystemButton.FlatAppearance.BorderSize = 0;
             this.transportSystemButton.Image = ((System.Drawing.Image)(resources.GetObject("transportSystemButton.Image")));
-            this.transportSystemButton.Location = new System.Drawing.Point(307, 262);
+            this.transportSystemButton.Location = new System.Drawing.Point(306, 263);
             this.transportSystemButton.Name = "transportSystemButton";
             this.transportSystemButton.Size = new System.Drawing.Size(194, 34);
             this.transportSystemButton.TabIndex = 1;

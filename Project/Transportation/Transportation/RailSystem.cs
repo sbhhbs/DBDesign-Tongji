@@ -16,12 +16,13 @@ namespace Transportation
     {
         private bool isDown = false;
         private bool isMiddleDown = false;
+        private bool isMoved = false;
 
         private Point currentPoint;
         private Point orgPoint;
 
         private int mapX = 0;
-        private int mapY = 0;
+        private int mapY = 0;        
 
         private Point currentPlace;
 
@@ -30,11 +31,6 @@ namespace Transportation
         public RailSystem() : base()
         {
             InitializeComponent();
-
-            orgPoint.X = map.Left;
-            orgPoint.Y = map.Top;
-
-            orgPoint = PointToScreen(orgPoint);
 
             StreamReader f2 = new StreamReader("..\\..\\assets\\points.txt", System.Text.Encoding.GetEncoding("gb2312"));
 
@@ -82,13 +78,29 @@ namespace Transportation
         {
             Application.Exit();
         }
-
+       
+      
         private void map_MouseUp(object sender, MouseEventArgs e)
         {
             isDown = false;
             
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
             Cursor = Cursors.Default;
+
+            
+            if (!isMoved && currentPlace.X != -1 && currentPlace.Y != -1)
+            {
+                Rail_Dialog dialog = new Rail_Dialog();
+
+                DialogResult dialogResult = dialog.ShowDialog();
+
+                if (dialogResult == DialogResult.Yes)
+                    startPos.Text = (string)pointTable[currentPlace];
+                else if (dialogResult == DialogResult.No)
+                    endPos.Text = (string)pointTable[currentPlace];
+
+                dialog.Close();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -107,8 +119,15 @@ namespace Transportation
 
         private void map_MouseMove(object sender, MouseEventArgs e)
         {
+            orgPoint.X = map.Left;
+            orgPoint.Y = map.Top;
+
+            orgPoint = PointToScreen(orgPoint);
+
             if (isDown || isMiddleDown)
             {
+                isMoved = true;
+
                 Point mapPoint = new Point(map.Left, map.Top);
 
                 mapPoint = PointToScreen(mapPoint);
@@ -133,18 +152,37 @@ namespace Transportation
                 if (isDown)
                 {
                     if (mapX + dx < map.Width - image.Width)
+                    {
                         mapX = map.Width - image.Width;
+                       
+                    }
                     else if (mapX + dx >= 0)
+                    {
                         mapX = 0;
+                      
+                    }
                     else
+                    {
                         mapX += dx;
+                
+                    }
 
                     if (mapY + dy < map.Height - image.Height)
+                    {
                         mapY = map.Height - image.Height;
+                  
+                    }
                     else if (mapY + dy >= 0)
+                    {
                         mapY = 0;
+             
+                    }
                     else
+                    {
                         mapY += dy;
+             
+                        
+                    }
                 }
                 else if (isMiddleDown)
                 {
@@ -197,9 +235,9 @@ namespace Transportation
                 temp.X = temp.X - orgPoint.X - mapX;
                 temp.Y = temp.Y - orgPoint.Y - mapY;
 
-                // Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
+                 Console.WriteLine("Current relative Pos : " + temp.X + "," + temp.Y);
 
-                for (int i = -2; i != 3; i++)
+                for (int i = -2; i != 3; i++)//放大鼠标的检测范围
                     for (int j = -2; j != 3; j++)
                     {
                         if (pointTable.Contains(new Point(temp.X + i, temp.Y + j)))
@@ -217,6 +255,9 @@ namespace Transportation
 
         private void map_MouseDown(object sender, MouseEventArgs e)
         {
+
+            isMoved = false;
+
             switch (e.Button)
             {
                 case MouseButtons.Left:
@@ -225,10 +266,8 @@ namespace Transportation
                     currentPoint.X = Control.MousePosition.X;
                     currentPoint.Y = Control.MousePosition.Y;
 
-                    if (currentPlace.X != -1 && currentPlace.Y != -1)
-                        startPos.Text = (string)pointTable[currentPlace];
-
                     break;
+
                 case MouseButtons.Middle:
                     isDown = false;
                     isMiddleDown = !isMiddleDown;
@@ -243,20 +282,13 @@ namespace Transportation
             }
         }
 
-        private void map_Click(object sender, EventArgs e)
+        private void button_Return_Click(object sender, EventArgs e)
         {
+            MainPage mainPage = new MainPage();
 
-        }
-
-        private void map_Paint()
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+            mainPage.Show();
+        } 
 
     }
+  
 }
