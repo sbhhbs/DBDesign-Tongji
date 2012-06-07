@@ -7,3 +7,5 @@ D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\GenerateResource.read.1.t
 D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.exe
 D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.pdb
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.exe
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.pdb

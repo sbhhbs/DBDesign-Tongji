@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 
 namespace Transportation
@@ -21,12 +22,17 @@ namespace Transportation
         private Point currentPoint;
         private Point orgPoint;
 
+        private Route testRoute;
+
+        private BezierRoute bezierRoute = new BezierRoute();
+
         private int mapX = 0;
         private int mapY = 0;        
 
         private Point currentPlace;
 
         private Hashtable pointTable = new Hashtable();
+        private Hashtable routeTable = new Hashtable();
 
         public RailSystem() : base()
         {
@@ -62,6 +68,29 @@ namespace Transportation
             }
 
             f2.Close();
+
+            routeTable = BezierCurve.getCurvesFromFile("..\\..\\assets\\bezier_points.txt");
+
+            testRoute = Route.routeFromFile("..\\..\\assets\\test_route.txt");
+
+            Line tempLine;
+
+            while ((tempLine = testRoute.moveToNextLine()) != null)
+                bezierRoute.addBezierCurve(getBezierCurveFromHash(tempLine));
+            
+        }
+
+        private BezierCurve getBezierCurveFromHash(Line line)
+        {
+            foreach (System.Collections.DictionaryEntry item in routeTable)
+            {
+                Line temp = (Line)item.Key;
+
+                if (temp.StartPos.X == line.StartPos.X && temp.StartPos.Y == line.StartPos.Y && temp.EndPos.X == line.EndPos.X && temp.EndPos.Y == line.EndPos.Y)
+                    return (BezierCurve)item.Value;
+            }
+
+            return null;
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -287,7 +316,29 @@ namespace Transportation
             MainPage mainPage = new MainPage();
 
             mainPage.Show();
-        } 
+        }
+
+        private void RouteTestButton_Click(object sender, EventArgs e)
+        {
+            routeTestRun();
+        }
+
+        private void routeTestRun()
+        {
+            while (bezierRoute.isEnd())
+            {
+                Thread.Sleep(100);
+
+                Point nextPos = bezierRoute.move();
+
+                if (nextPos.X == 0 && nextPos.Y == 0)
+                    return;
+                
+                PositionMark.Left = ( nextPos.X * 2 + map.Left * 2 - PositionMark.Width ) / 2;
+                PositionMark.Top =  ( nextPos.Y * 2 + map.Top * 2 - PositionMark.Height ) / 2;
+            }
+
+        }
 
     }
   
