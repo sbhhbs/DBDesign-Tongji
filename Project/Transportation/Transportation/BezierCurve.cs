@@ -10,9 +10,25 @@ namespace Transportation
 {
     class BezierCurve
     {
+        public static int FrontMove = 1;
+        public static int BackMove = 2;
+
+        private int mode = FrontMove;
+
         List<Bezier> beziers = new List<Bezier>();
 
         double pos;
+
+        public void setMode(int mode)
+        {
+            if (mode == FrontMove)
+                pos = 0;
+            else if (mode == BackMove)
+                pos = beziers.Count;
+
+            this.mode = mode;
+
+        }
 
         public BezierCurve()
         {
@@ -45,14 +61,22 @@ namespace Transportation
 
             Bezier bezier = beziers.ElementAt(i);
 
-            pos += Bezier.stepLength * 10;
+            if (mode == FrontMove)
+                pos += Bezier.stepLength * 20;
+            else if (mode == BackMove)
+                pos -= Bezier.stepLength * 20;
 
             return bezier.getPoint(count);
         }
 
         public Boolean isEnd()
         {
-            return (pos - beziers.Count) > Bezier.stepLength;
+            if (mode == FrontMove)
+                return (pos - beziers.Count) > Bezier.stepLength;
+            else if (mode == BackMove)
+                return pos < 0;
+
+            return false;
         }
 
         public static Hashtable getCurvesFromFile(String filePath)

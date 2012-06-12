@@ -18,6 +18,7 @@ namespace Transportation
         private bool isDown = false;
         private bool isMiddleDown = false;
         private bool isMoved = false;
+        private bool isAnimating = false;
 
         private Point currentPoint;
         private Point orgPoint;
@@ -25,6 +26,8 @@ namespace Transportation
         private Route testRoute;
 
         private BezierRoute bezierRoute = new BezierRoute();
+
+        private Point userPos = new Point();
 
         private int mapX = 0;
         private int mapY = 0;        
@@ -100,7 +103,7 @@ namespace Transportation
 
         private void RailSystem_Load(object sender, EventArgs e)
         {
-
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -134,7 +137,7 @@ namespace Transportation
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
+             base.OnPaint(e);
 
             Graphics graphics = map.CreateGraphics();
 
@@ -142,6 +145,13 @@ namespace Transportation
             bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
             graphics.DrawImage(bitmap, mapX, mapY);
+
+            if (isAnimating)
+            {
+                SolidBrush brush = new SolidBrush(Color.Black);
+
+                graphics.FillEllipse(brush, new Rectangle(userPos.X, userPos.Y, 10, 10));
+            }
 
             graphics.Dispose();
         }
@@ -176,7 +186,6 @@ namespace Transportation
                 Graphics graphics = map.CreateGraphics();
 
                 Image image = map.Image;
-                
 
                 if (isDown)
                 {
@@ -193,7 +202,6 @@ namespace Transportation
                     else
                     {
                         mapX += dx;
-                
                     }
 
                     if (mapY + dy < map.Height - image.Height)
@@ -208,9 +216,7 @@ namespace Transportation
                     }
                     else
                     {
-                        mapY += dy;
-             
-                        
+                        mapY += dy;                        
                     }
                 }
                 else if (isMiddleDown)
@@ -251,11 +257,14 @@ namespace Transportation
                         Cursor = Cursors.PanNW;
 
                 }
+
                 Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
                 bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
                 graphics.DrawImage(bitmap, mapX, mapY);
                 graphics.Dispose();
+
+
             }
             else
             {
@@ -284,6 +293,8 @@ namespace Transportation
 
         private void map_MouseDown(object sender, MouseEventArgs e)
         {
+            if (isAnimating)
+                return;
 
             isMoved = false;
 
@@ -320,7 +331,9 @@ namespace Transportation
 
         private void RouteTestButton_Click(object sender, EventArgs e)
         {
-            routeTestRun();
+            new Thread(new ThreadStart(routeTestRun)).Start();
+            isAnimating = true;
+            bezierRoute.setMode(BezierCurve.FrontMove);
         }
 
         private void routeTestRun()
@@ -333,13 +346,42 @@ namespace Transportation
 
                 if (nextPos.X == 0 && nextPos.Y == 0)
                     return;
-                
-                PositionMark.Left = ( nextPos.X * 2 + map.Left * 2 - PositionMark.Width ) / 2;
-                PositionMark.Top =  ( nextPos.Y * 2 + map.Top * 2 - PositionMark.Height ) / 2;
+
+                userPos.X = nextPos.X - 5 + mapX;
+                userPos.Y = nextPos.Y - 5 + mapY;
+
+                map.Refresh();
+
+                Graphics graphics = map.CreateGraphics();
+
+                Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+                bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+                graphics.DrawImage(bitmap, mapX, mapY);
+
+                SolidBrush brush = new SolidBrush(Color.Black);
+
+                graphics.FillEllipse(brush, new Rectangle(userPos.X, userPos.Y, 10, 10));
+
+                graphics.Dispose();
+
+
+                if (bezierRoute.IsOnStation())
+                {
+                    Thread.Sleep(5000);
+                    bezierRoute.setOnStation();
+                }
             }
 
+            isAnimating = false;
         }
 
+        private void map_Paint(object sender, PaintEventArgs e)
+        {
+            // base.OnPaint(e);
+
+
+        }
     }
   
 }
