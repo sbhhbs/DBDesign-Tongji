@@ -90,7 +90,19 @@ namespace Transportation
                 Line temp = (Line)item.Key;
 
                 if (temp.StartPos.X == line.StartPos.X && temp.StartPos.Y == line.StartPos.Y && temp.EndPos.X == line.EndPos.X && temp.EndPos.Y == line.EndPos.Y)
-                    return (BezierCurve)item.Value;
+                {
+                    BezierCurve bezierCurve = (BezierCurve)item.Value;
+                    bezierCurve.setMode(BezierCurve.FrontMove);
+                    // bezierRoute.setMode(BezierCurve.FrontMove);
+                    return bezierCurve;
+                }
+                else if (temp.StartPos.X == line.EndPos.X && temp.StartPos.Y == line.EndPos.Y && temp.EndPos.X == line.StartPos.X && temp.EndPos.Y == line.StartPos.Y)
+                {
+                    BezierCurve bezierCurve = (BezierCurve)item.Value;
+                    bezierCurve.setMode(BezierCurve.BackMove);
+                    // bezierRoute.setMode(BezierCurve.BackMove);
+                    return bezierCurve;          
+                }
             }
 
             return null;

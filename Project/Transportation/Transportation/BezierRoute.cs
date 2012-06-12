@@ -10,7 +10,7 @@ namespace Transportation
     {
         private List<BezierCurve> bezierCurves;
 
-        private int mode = BezierCurve.FrontMove;
+        private List<int> mode = new List<int>();
 
         private bool isOnStation = false;
 
@@ -39,16 +39,15 @@ namespace Transportation
 
         public void setMode(int mode)
         {
-            this.mode = mode;
+            this.mode.Add(mode);
+            int i = this.mode.Count - 1;
             if (mode == BezierCurve.BackMove)
             {
-                pos = bezierCurves.Count - 1;
-                bezierCurves.Last().setMode(mode);
+                bezierCurves.ElementAt(i).setMode(mode);
             }
             else if (mode == BezierCurve.FrontMove)
             {
-                pos = 0;
-                bezierCurves.First().setMode(mode);
+                bezierCurves.ElementAt(i).setMode(mode);
             }
         }
 
@@ -56,31 +55,20 @@ namespace Transportation
         {
             if (bezierCurves.ElementAt(pos).isEnd())
             {
-                if (mode == BezierCurve.FrontMove)
-                    pos++;
-                else if (mode == BezierCurve.BackMove)
-                    pos--;
+                pos++;
 
                 if (!isEnd())
                     return new Point(0, 0);
 
                 isOnStation = true;
-                bezierCurves.ElementAt(pos).setMode(mode);
             }
-
-           
 
             return bezierCurves.ElementAt(pos).move();
         }
 
         public Boolean isEnd()
         {
-            if (mode == BezierCurve.FrontMove)
-                return pos < bezierCurves.Count;
-            else if (mode == BezierCurve.BackMove)
-                return pos >= 0;
-
-            return false;
+            return pos < bezierCurves.Count;
         }
     }
 }
