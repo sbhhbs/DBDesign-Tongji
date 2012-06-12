@@ -345,7 +345,6 @@ namespace Transportation
         {
             new Thread(new ThreadStart(routeTestRun)).Start();
             isAnimating = true;
-            bezierRoute.setMode(BezierCurve.FrontMove);
         }
 
         private void routeTestRun()
@@ -362,7 +361,58 @@ namespace Transportation
                 userPos.X = nextPos.X - 5 + mapX;
                 userPos.Y = nextPos.Y - 5 + mapY;
 
-                map.Refresh();
+
+
+                if (userPos.X > map.Width / 2 - mapX)
+                {
+
+                    int dx = map.Width / 2;
+
+                    if (mapX - dx >= map.Width - map.Image.Width)
+                    {
+                        mapX = mapX - dx;
+                    }
+                    else
+                        mapX = map.Width - map.Image.Width;
+                }
+                else if (userPos.X < map.Width / 4 - mapX)
+                {
+                    int dx = -map.Width / 4;
+                    if (dx < 0 && mapX - dx <= 0)
+                    {
+                        mapX = mapX - dx;
+                    }
+                    else
+                        mapX = 0;
+
+                }
+
+
+                if (userPos.Y > map.Height / 4 * 3 - mapY)
+                {
+
+                    int dy = map.Height / 4;
+
+                    if (mapY - dy >= map.Height - map.Image.Height)
+                    {
+                        mapY = mapY - dy;
+                    }
+                    else
+                    {
+                        mapY = map.Height - map.Image.Height;
+                    }
+                }
+                else if (userPos.Y < map.Height / 4 - mapY)
+                {
+                    int dy = -map.Height / 4;
+
+                    if (mapY - dy <= 0)
+                        mapY = mapY - dy;
+                    else
+                        mapY = 0;
+                }
+
+                // map.Refresh();
 
                 Graphics graphics = map.CreateGraphics();
 
@@ -376,7 +426,6 @@ namespace Transportation
                 graphics.FillEllipse(brush, new Rectangle(userPos.X, userPos.Y, 10, 10));
 
                 graphics.Dispose();
-
 
                 if (bezierRoute.IsOnStation())
                 {
