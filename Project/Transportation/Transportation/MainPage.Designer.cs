@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.railSystemButton = new System.Windows.Forms.Button();
-            this.transportSystemButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // railSystemButton
@@ -39,25 +38,12 @@
             this.railSystemButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.railSystemButton.FlatAppearance.BorderSize = 0;
             this.railSystemButton.Image = ((System.Drawing.Image)(resources.GetObject("railSystemButton.Image")));
-            this.railSystemButton.Location = new System.Drawing.Point(306, 189);
+            this.railSystemButton.Location = new System.Drawing.Point(299, 234);
             this.railSystemButton.Name = "railSystemButton";
             this.railSystemButton.Size = new System.Drawing.Size(194, 34);
             this.railSystemButton.TabIndex = 0;
             this.railSystemButton.UseVisualStyleBackColor = false;
             this.railSystemButton.Click += new System.EventHandler(this.railSystemButton_Click);
-            // 
-            // transportSystemButton
-            // 
-            this.transportSystemButton.BackColor = System.Drawing.Color.White;
-            this.transportSystemButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.transportSystemButton.FlatAppearance.BorderSize = 0;
-            this.transportSystemButton.Image = ((System.Drawing.Image)(resources.GetObject("transportSystemButton.Image")));
-            this.transportSystemButton.Location = new System.Drawing.Point(306, 263);
-            this.transportSystemButton.Name = "transportSystemButton";
-            this.transportSystemButton.Size = new System.Drawing.Size(194, 34);
-            this.transportSystemButton.TabIndex = 1;
-            this.transportSystemButton.UseVisualStyleBackColor = false;
-            this.transportSystemButton.Click += new System.EventHandler(this.transportSystemButton_Click);
             // 
             // MainPage
             // 
@@ -65,7 +51,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 602);
-            this.Controls.Add(this.transportSystemButton);
             this.Controls.Add(this.railSystemButton);
             this.Name = "MainPage";
             this.Text = "公交系统";
@@ -77,7 +62,7 @@
         #endregion
 
         private System.Windows.Forms.Button railSystemButton;
-        private System.Windows.Forms.Button transportSystemButton;
+
 
     }
 }
