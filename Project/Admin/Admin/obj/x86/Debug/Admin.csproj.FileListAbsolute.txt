@@ -29,3 +29,16 @@ C:\Users\GodBlessedMay\Desktop\Transportation\DBDesign-Tongji\Project\Admin\Admi
 C:\Users\GodBlessedMay\Desktop\Transportation\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\GodBlessedMay\Desktop\Transportation\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\GodBlessedMay\Desktop\Transportation\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceInfo.resources
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.exe
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.pdb
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Admin.exe
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Admin.pdb
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.MainPage.resources
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.Properties.Resources.resources
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.ServiceInfo.resources
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.read.1.tlog
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Newtonsoft.Json.dll
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\bin\Debug\Newtonsoft.Json.xml
+G:\灌木间穿梭的小矮人\嘉定三月\公交卡系统\6-13\DBDesign-Tongji\Project\Admin\Admin\obj\x86\Debug\Admin.CustomerService.resources

@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,11 +76,11 @@
     <Compile Include="Rail_Dialog.Designer.cs">
       <DependentUpon>Rail_Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransportationView.cs">
+    <Compile Include="TransportationMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransportationView.Designer.cs">
-      <DependentUpon>TransportationView.cs</DependentUpon>
+    <Compile Include="TransportationMainPage.Designer.cs">
+      <DependentUpon>TransportationMainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="MainPage.resx">
@@ -98,8 +101,8 @@
     <EmbeddedResource Include="Rail_Dialog.resx">
       <DependentUpon>Rail_Dialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportationView.resx">
-      <DependentUpon>TransportationView.cs</DependentUpon>
+    <EmbeddedResource Include="TransportationMainPage.resx">
+      <DependentUpon>TransportationMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

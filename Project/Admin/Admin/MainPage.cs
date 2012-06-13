@@ -20,7 +20,7 @@ namespace Admin
         private void go_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Services service = new Services();
+            CustomerService service = new CustomerService();
             service.Show();
         }
 
@@ -29,15 +29,26 @@ namespace Admin
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBoxUserName_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
-            new Thread(new ThreadStart(logIn)).Start();
-            this.Close();
+            if ((textBoxUserName.Text == null) || (textBoxPassword.Text == null))
+            {
+                MessageBox.Show("用户名或密码不可为空哦！", "出错", MessageBoxButtons.OK);
+            }
+            else if ((textBoxUserName.Text.Length == 0) || (textBoxPassword.Text.Length == 0))
+            {
+                MessageBox.Show("用户名或密码不可为空哦！", "出错", MessageBoxButtons.OK);
+            }
+            else
+            {
+                new Thread(new ThreadStart(logIn)).Start();
+                this.Close();
+            }
         }
 
         private void logIn()

@@ -75,6 +75,7 @@
             this.Controls.Add(this.button_In);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Rail_Dialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rail_Dialog";
             this.Load += new System.EventHandler(this.Rail_Dialog_Load);
             this.ResumeLayout(false);
