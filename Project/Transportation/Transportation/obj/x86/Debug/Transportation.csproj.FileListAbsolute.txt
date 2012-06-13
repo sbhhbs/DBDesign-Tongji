@@ -28,7 +28,6 @@ C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transporta
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.MainPage.resources
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.Properties.Resources.resources
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.RailSystem.resources
-C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationView.resources
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\GUN\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.exe
@@ -57,3 +56,6 @@ C:\Users\GUN\Desktop\我改的\Transportation\Transportation\obj\x86\Debug\Gener
 E:\资料\项目\公交系统项目\Repository\Project\Transportation\Transportation\obj\x86\Debug\Transportation.exe
 E:\资料\项目\公交系统项目\Repository\Project\Transportation\Transportation\obj\x86\Debug\Transportation.pdb
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.Rail_Dialog.resources
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationMainPage.resources
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\bin\Debug\Newtonsoft.Json.dll
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\bin\Debug\Newtonsoft.Json.xml

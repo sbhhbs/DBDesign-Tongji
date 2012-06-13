@@ -25,6 +25,8 @@ namespace Transportation
 
         private Route testRoute;
 
+        private bool isEnd = false;
+
         private BezierRoute bezierRoute = new BezierRoute();
 
         private Point userPos = new Point();
@@ -37,11 +39,21 @@ namespace Transportation
         private Hashtable pointTable = new Hashtable();
         private Hashtable routeTable = new Hashtable();
 
+        private Bitmap bitmap;
+
         public RailSystem() : base()
         {
             InitializeComponent();
 
             StreamReader f2 = new StreamReader("..\\..\\assets\\points.txt", System.Text.Encoding.GetEncoding("gb2312"));
+
+            Graphics graphics = map.CreateGraphics();
+
+            bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
+            bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+            graphics.Dispose();
+
 
             String temp;
             while (!f2.EndOfStream)
@@ -116,11 +128,6 @@ namespace Transportation
         private void RailSystem_Load(object sender, EventArgs e)
         {
             Control.CheckForIllegalCrossThreadCalls = false;
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
        
       
@@ -270,9 +277,6 @@ namespace Transportation
 
                 }
 
-                Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
-                bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
-
                 graphics.DrawImage(bitmap, mapX, mapY);
                 graphics.Dispose();
 
@@ -336,9 +340,14 @@ namespace Transportation
 
         private void button_Return_Click(object sender, EventArgs e)
         {
-            MainPage mainPage = new MainPage();
+            new Thread(new ThreadStart(back)).Start();
+            isEnd = true;
+            Close();
+        }
 
-            mainPage.Show();
+        private void back()
+        {
+            new MainPage().ShowDialog();
         }
 
         private void RouteTestButton_Click(object sender, EventArgs e)
@@ -349,7 +358,7 @@ namespace Transportation
 
         private void routeTestRun()
         {
-            while (bezierRoute.isEnd())
+            while (bezierRoute.isEnd() && !isEnd)
             {
                 Thread.Sleep(100);
 
@@ -386,10 +395,10 @@ namespace Transportation
                     pointOffset.X = mapPosExpected.X;
                     mapPosExpected.X = 0;
                 }
-                if (mapPosExpected.X + map.Width > map.Image.Width)
+                if (mapPosExpected.X + map.Width > bitmap.Width)
                 {
-                    pointOffset.X = mapPosExpected.X - (map.Image.Width - (mapPosExpected.X + map.Width));
-                    mapPosExpected.X = map.Image.Width - map.Width;
+                    pointOffset.X = mapPosExpected.X - (bitmap.Width - (mapPosExpected.X + map.Width));
+                    mapPosExpected.X = bitmap.Width - map.Width;
                 }
 
                 if (mapPosExpected.Y < 0)
@@ -397,10 +406,10 @@ namespace Transportation
                     pointOffset.Y = mapPosExpected.Y;
                     mapPosExpected.Y = 0;
                 }
-                if (mapPosExpected.Y + map.Height > map.Image.Height)
+                if (mapPosExpected.Y + map.Height > bitmap.Height)
                 {
-                    pointOffset.Y = mapPosExpected.Y - (map.Image.Height - (mapPosExpected.Y + map.Height));
-                    mapPosExpected.Y = map.Image.Height - map.Height;
+                    pointOffset.Y = mapPosExpected.Y - (bitmap.Height - (mapPosExpected.Y + map.Height));
+                    mapPosExpected.Y = bitmap.Height - map.Height;
                 }
 
 
@@ -414,61 +423,7 @@ namespace Transportation
                 userPos.X = map.Width / 2 - 5 + pointOffset.X;
                 userPos.Y = map.Height / 2 - 5 + pointOffset.Y;
 
-                //if (userPos.X > map.Width / 2 - mapX)
-                //{
-
-                //    int dx = map.Width / 2;
-
-                //    if (mapX - dx >= map.Width - map.Image.Width)
-                //    {
-                //        mapX = mapX - dx;
-                //    }
-                //    else
-                //        mapX = map.Width - map.Image.Width;
-                //}
-                //else if (userPos.X < map.Width / 4 - mapX)
-                //{
-                //    int dx = -map.Width / 4;
-                //    if (dx < 0 && mapX - dx <= 0)
-                //    {
-                //        mapX = mapX - dx;
-                //    }
-                //    else
-                //        mapX = 0;
-
-                //}
-
-
-                //if (userPos.Y > map.Height / 4 * 3 - mapY)
-                //{
-
-                //    int dy = map.Height / 4;
-
-                //    if (mapY - dy >= map.Height - map.Image.Height)
-                //    {
-                //        mapY = mapY - dy;
-                //    }
-                //    else
-                //    {
-                //        mapY = map.Height - map.Image.Height;
-                //    }
-                //}
-                //else if (userPos.Y < map.Height / 4 - mapY)
-                //{
-                //    int dy = -map.Height / 4;
-
-                //    if (mapY - dy <= 0)
-                //        mapY = mapY - dy;
-                //    else
-                //        mapY = 0;
-                //}
-
-                // map.Refresh();
-
                 Graphics graphics = map.CreateGraphics();
-
-                Bitmap bitmap = new Bitmap(map.Image, map.Image.Width, map.Image.Height);
-                bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
                 graphics.DrawImage(bitmap, mapX, mapY);
 
@@ -493,6 +448,12 @@ namespace Transportation
             // base.OnPaint(e);
 
 
+        }
+
+        private void button_OK_Click(object sender, EventArgs e)
+        {
+            new Thread(new ThreadStart(routeTestRun)).Start();
+            isAnimating = true;
         }
     }
   

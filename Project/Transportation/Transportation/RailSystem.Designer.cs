@@ -34,7 +34,6 @@
             this.button_Return = new System.Windows.Forms.Button();
             this.startPos = new System.Windows.Forms.Label();
             this.endPos = new System.Windows.Forms.Label();
-            this.RouteTestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,15 +59,16 @@
             this.button_OK.Size = new System.Drawing.Size(73, 29);
             this.button_OK.TabIndex = 1;
             this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
             // button_Return
             // 
+            this.button_Return.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Return.BackgroundImage")));
             this.button_Return.Location = new System.Drawing.Point(685, 322);
             this.button_Return.Margin = new System.Windows.Forms.Padding(2);
             this.button_Return.Name = "button_Return";
             this.button_Return.Size = new System.Drawing.Size(73, 29);
             this.button_Return.TabIndex = 2;
-            this.button_Return.Text = "返回";
             this.button_Return.UseVisualStyleBackColor = true;
             this.button_Return.Click += new System.EventHandler(this.button_Return_Click);
             // 
@@ -96,23 +96,12 @@
             this.endPos.Size = new System.Drawing.Size(0, 22);
             this.endPos.TabIndex = 4;
             // 
-            // RouteTestButton
-            // 
-            this.RouteTestButton.Location = new System.Drawing.Point(689, 368);
-            this.RouteTestButton.Name = "RouteTestButton";
-            this.RouteTestButton.Size = new System.Drawing.Size(68, 25);
-            this.RouteTestButton.TabIndex = 6;
-            this.RouteTestButton.Text = "button1";
-            this.RouteTestButton.UseVisualStyleBackColor = true;
-            this.RouteTestButton.Click += new System.EventHandler(this.RouteTestButton_Click);
-            // 
             // RailSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 562);
-            this.Controls.Add(this.RouteTestButton);
             this.Controls.Add(this.endPos);
             this.Controls.Add(this.startPos);
             this.Controls.Add(this.button_Return);
@@ -120,6 +109,7 @@
             this.Controls.Add(this.map);
             this.Name = "RailSystem";
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "地铁出行查询";
             this.Load += new System.EventHandler(this.RailSystem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
@@ -135,6 +125,5 @@
         private System.Windows.Forms.Button button_Return;
         private System.Windows.Forms.Label startPos;
         private System.Windows.Forms.Label endPos;
-        private System.Windows.Forms.Button RouteTestButton;
     }
 }
