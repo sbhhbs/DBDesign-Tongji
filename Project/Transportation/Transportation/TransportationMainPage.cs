@@ -43,19 +43,30 @@ namespace Transportation
         private bool connectToServer()
         {
 
-            HttpWebRequest requestToServer = (HttpWebRequest)WebRequest.Create("http://180.160.9.1:8080/UserIn?userId=" + CardID.Text);
+            HttpWebRequest requestToServer = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/UserIn?userId=" + CardID.Text);
             requestToServer.AllowWriteStreamBuffering = false;
             requestToServer.KeepAlive = false;
 
-            WebResponse response = requestToServer.GetResponse();
-            StreamReader responseReader = new StreamReader(response.GetResponseStream());
-            string replyFromServer = responseReader.ReadToEnd();
+            try
+            {
 
-            JsonReader jsonReader = new JsonTextReader(new StringReader(replyFromServer));
+                WebResponse response = requestToServer.GetResponse();
+                StreamReader responseReader = new StreamReader(response.GetResponseStream());
+                string replyFromServer = responseReader.ReadToEnd();
 
-            jsonReader.Read();
+                JsonReader jsonReader = new JsonTextReader(new StringReader(replyFromServer));
 
-            return (bool)jsonReader.Value;
+                jsonReader.Read();
+
+                return (bool)jsonReader.Value;
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.StackTrace);
+                System.Console.WriteLine(e.ToString());
+            }
+
+            return false;
             
         }
 
