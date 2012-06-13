@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Admin
 {
@@ -26,6 +27,25 @@ namespace Admin
         private void MainPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Thread(new ThreadStart(logIn)).Start();
+            this.Close();
+        }
+
+        private void logIn()
+        {
+            ServiceInfo serviceInfo = new ServiceInfo();
+            serviceInfo.ShowDialog();
+
+            // TODO: Add The Client Part
         }
     }
 }

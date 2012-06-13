@@ -34,6 +34,7 @@
             this.change = new System.Windows.Forms.Button();
             this.lost = new System.Windows.Forms.Button();
             this.historyQuery = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // balanceQuery
@@ -90,12 +91,24 @@
             this.historyQuery.UseVisualStyleBackColor = true;
             this.historyQuery.Click += new System.EventHandler(this.historyQuery_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(66, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(274, 26);
+            this.textBox1.TabIndex = 5;
+            // 
             // ServiceCardLost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 602);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.historyQuery);
             this.Controls.Add(this.lost);
             this.Controls.Add(this.change);
@@ -106,6 +119,7 @@
             this.Text = "Services";
             this.Load += new System.EventHandler(this.ServiceCardLost_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,5 +130,6 @@
         private System.Windows.Forms.Button change;
         private System.Windows.Forms.Button lost;
         private System.Windows.Forms.Button historyQuery;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

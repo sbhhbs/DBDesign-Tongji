@@ -358,59 +358,110 @@ namespace Transportation
                 if (nextPos.X == 0 && nextPos.Y == 0)
                     return;
 
-                userPos.X = nextPos.X - 5 + mapX;
-                userPos.Y = nextPos.Y - 5 + mapY;
+                Console.WriteLine("mapPos");
+                Console.WriteLine(mapX);
+                Console.WriteLine(mapY);
+
+                userPos.X = nextPos.X;
+                userPos.Y = nextPos.Y;
+
+                Console.WriteLine("userPos");
+                Console.WriteLine(userPos.X);
+                Console.WriteLine(userPos.Y);
 
 
+                Point mapPosExpected = nextPos;//fuck...do i have to assign a value here?
+                Point pointOffset = nextPos;//fuck...do i have to assign a value here?
+                pointOffset.X = 0;
+                pointOffset.Y = 0;
 
-                if (userPos.X > map.Width / 2 - mapX)
+
+                mapPosExpected.X = (userPos.X - map.Width / 2);
+                mapPosExpected.Y = (userPos.Y - map.Height / 2);
+
+
+                //out of boundary
+                if (mapPosExpected.X < 0)
                 {
-
-                    int dx = map.Width / 2;
-
-                    if (mapX - dx >= map.Width - map.Image.Width)
-                    {
-                        mapX = mapX - dx;
-                    }
-                    else
-                        mapX = map.Width - map.Image.Width;
+                    pointOffset.X = mapPosExpected.X;
+                    mapPosExpected.X = 0;
                 }
-                else if (userPos.X < map.Width / 4 - mapX)
+                if (mapPosExpected.X + map.Width > map.Image.Width)
                 {
-                    int dx = -map.Width / 4;
-                    if (dx < 0 && mapX - dx <= 0)
-                    {
-                        mapX = mapX - dx;
-                    }
-                    else
-                        mapX = 0;
-
+                    pointOffset.X = mapPosExpected.X - (map.Image.Width - (mapPosExpected.X + map.Width));
+                    mapPosExpected.X = map.Image.Width - map.Width;
                 }
 
-
-                if (userPos.Y > map.Height / 4 * 3 - mapY)
+                if (mapPosExpected.Y < 0)
                 {
-
-                    int dy = map.Height / 4;
-
-                    if (mapY - dy >= map.Height - map.Image.Height)
-                    {
-                        mapY = mapY - dy;
-                    }
-                    else
-                    {
-                        mapY = map.Height - map.Image.Height;
-                    }
+                    pointOffset.Y = mapPosExpected.Y;
+                    mapPosExpected.Y = 0;
                 }
-                else if (userPos.Y < map.Height / 4 - mapY)
+                if (mapPosExpected.Y + map.Height > map.Image.Height)
                 {
-                    int dy = -map.Height / 4;
-
-                    if (mapY - dy <= 0)
-                        mapY = mapY - dy;
-                    else
-                        mapY = 0;
+                    pointOffset.Y = mapPosExpected.Y - (map.Image.Height - (mapPosExpected.Y + map.Height));
+                    mapPosExpected.Y = map.Image.Height - map.Height;
                 }
+
+
+
+                mapX = -mapPosExpected.X;
+                mapY = -mapPosExpected.Y;
+
+
+                //now is picture-box base position
+
+                userPos.X = map.Width / 2 - 5 + pointOffset.X;
+                userPos.Y = map.Height / 2 - 5 + pointOffset.Y;
+
+                //if (userPos.X > map.Width / 2 - mapX)
+                //{
+
+                //    int dx = map.Width / 2;
+
+                //    if (mapX - dx >= map.Width - map.Image.Width)
+                //    {
+                //        mapX = mapX - dx;
+                //    }
+                //    else
+                //        mapX = map.Width - map.Image.Width;
+                //}
+                //else if (userPos.X < map.Width / 4 - mapX)
+                //{
+                //    int dx = -map.Width / 4;
+                //    if (dx < 0 && mapX - dx <= 0)
+                //    {
+                //        mapX = mapX - dx;
+                //    }
+                //    else
+                //        mapX = 0;
+
+                //}
+
+
+                //if (userPos.Y > map.Height / 4 * 3 - mapY)
+                //{
+
+                //    int dy = map.Height / 4;
+
+                //    if (mapY - dy >= map.Height - map.Image.Height)
+                //    {
+                //        mapY = mapY - dy;
+                //    }
+                //    else
+                //    {
+                //        mapY = map.Height - map.Image.Height;
+                //    }
+                //}
+                //else if (userPos.Y < map.Height / 4 - mapY)
+                //{
+                //    int dy = -map.Height / 4;
+
+                //    if (mapY - dy <= 0)
+                //        mapY = mapY - dy;
+                //    else
+                //        mapY = 0;
+                //}
 
                 // map.Refresh();
 

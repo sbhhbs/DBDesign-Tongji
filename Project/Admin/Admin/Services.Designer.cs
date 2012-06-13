@@ -34,6 +34,7 @@
             this.change = new System.Windows.Forms.Button();
             this.charge = new System.Windows.Forms.Button();
             this.balanceQuery = new System.Windows.Forms.Button();
+            this.userCardID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // historyQuery
@@ -91,12 +92,25 @@
             this.balanceQuery.UseVisualStyleBackColor = true;
             this.balanceQuery.Click += new System.EventHandler(this.balanceQuery_Click);
             // 
+            // userCardID
+            // 
+            this.userCardID.BackColor = System.Drawing.SystemColors.MenuText;
+            this.userCardID.Enabled = false;
+            this.userCardID.Font = new System.Drawing.Font("宋体", 12F);
+            this.userCardID.ForeColor = System.Drawing.SystemColors.Window;
+            this.userCardID.Location = new System.Drawing.Point(68, 53);
+            this.userCardID.Name = "userCardID";
+            this.userCardID.Size = new System.Drawing.Size(269, 26);
+            this.userCardID.TabIndex = 10;
+            this.userCardID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userCardID_KeyPress);
+            // 
             // Services
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 602);
+            this.Controls.Add(this.userCardID);
             this.Controls.Add(this.historyQuery);
             this.Controls.Add(this.lost);
             this.Controls.Add(this.change);
@@ -107,6 +121,7 @@
             this.Text = "Services";
             this.Load += new System.EventHandler(this.Services_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +132,6 @@
         private System.Windows.Forms.Button change;
         private System.Windows.Forms.Button charge;
         private System.Windows.Forms.Button balanceQuery;
+        private System.Windows.Forms.TextBox userCardID;
     }
 }

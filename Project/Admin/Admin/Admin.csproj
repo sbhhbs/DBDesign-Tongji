@@ -72,6 +72,12 @@
     <Compile Include="ServiceHistory.Designer.cs">
       <DependentUpon>ServiceHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceInfo.Designer.cs">
+      <DependentUpon>ServiceInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceRecharge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceHistory.resx">
       <DependentUpon>ServiceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceInfo.resx">
+      <DependentUpon>ServiceInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceRecharge.resx">
       <DependentUpon>ServiceRecharge.cs</DependentUpon>

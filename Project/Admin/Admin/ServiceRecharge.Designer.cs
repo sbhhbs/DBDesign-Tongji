@@ -34,6 +34,9 @@
             this.change = new System.Windows.Forms.Button();
             this.charge = new System.Windows.Forms.Button();
             this.balanceQuery = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // historyQuery
@@ -51,7 +54,7 @@
             // 
             this.lost.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lost.Image = ((System.Drawing.Image)(resources.GetObject("lost.Image")));
-            this.lost.Location = new System.Drawing.Point(157, 399);
+            this.lost.Location = new System.Drawing.Point(66, 398);
             this.lost.Name = "lost";
             this.lost.Size = new System.Drawing.Size(72, 28);
             this.lost.TabIndex = 8;
@@ -91,12 +94,44 @@
             this.balanceQuery.UseVisualStyleBackColor = true;
             this.balanceQuery.Click += new System.EventHandler(this.balanceQuery_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("宋体", 13F);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(66, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(272, 27);
+            this.textBox1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(567, 201);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 30);
+            this.button1.TabIndex = 11;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(262, 399);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 27);
+            this.button2.TabIndex = 12;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // ServiceRecharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 602);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.historyQuery);
             this.Controls.Add(this.lost);
             this.Controls.Add(this.change);
@@ -107,6 +142,7 @@
             this.Text = "ServiceRecharge";
             this.Load += new System.EventHandler(this.ServiceRecharge_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +153,8 @@
         private System.Windows.Forms.Button change;
         private System.Windows.Forms.Button charge;
         private System.Windows.Forms.Button balanceQuery;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

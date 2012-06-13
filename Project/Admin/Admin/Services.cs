@@ -60,5 +60,12 @@ namespace Admin
             Application.Exit();
         }
 
+        private void userCardID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+                
+        }
+
     }
 }
