@@ -121,7 +121,11 @@
   <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEkAAAAdCAYAAADmbEE9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+<<<<<<< HEAD
         YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAsJSURBVGhDzZlVc1zZFYX9lDykEstMgm6pJTOzLWiBZWaZ
+=======
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAsJSURBVGhDzZlVc1zZFYX9lDykEstMgm6pJTOzLWiBZWaZ
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
         mVkGmZlkHjMzM0NclcfMpJI8Jg/5FYHJeDJTyctOf7tnSUcdzSRVMczDrnvvubevdNZda+199mnw16/+
         YfGywZYTy7PMrKhlZmZaJBKx7OxsP0YjieusDB8nsrKyPDjPyMiwaDT5mzZt2lh6enrNeatWrfx+ixYt
         fKx169b+TMuWLX2Md3BO8Cz3OXJPY82aNbPmzZsbR+43adLEGjVq5PcZ45pj48aNPZo2berBOc9x5Bnd
@@ -218,7 +222,11 @@
         RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
         lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
         f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
+<<<<<<< HEAD
         j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEQAACxEBf2RfkQAABgtJREFUaEPdmkdLXW0U
+=======
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEgAACxIB0t1+/AAABgtJREFUaEPdmkdLXW0U
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
         hTO3dyeCPXZj711TRMQuim1gRVCSgQUSC4JBxG40GkuiI3XmT/MP7GS9sA77vjk3Jh8Bz5fB4lxvPNec
         x7XLu7fPUlJSHmJjYyUmJsZH0dHRYisqKkr8KTIyUtwUEREhWuHh4eKmsLAwsRUaGiq2QkJCxE3BwcFi
         KygoSNwUGBgo/hQQECD+hP/fs+rq6oeGhgapr6/3UV1dnVC1tbUC1dTUOPpxn0BVVVVGlZWVUlFRIeXl
@@ -294,7 +302,11 @@
         RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
         lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
         f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
+<<<<<<< HEAD
         j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEQAACxEBf2RfkQAA9UFJREFUeF7s/Xe0HNdx
+=======
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEgAACxIB0t1+/AAA9UFJREFUeF7s/Xe0HNdx
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
         7g3fta5tiUFMwMk5gcg5k8iByDmSAAkQgRkEM8WcJeYoZjFIYhaVKFFUlmUxOCqSlmzJsoKD7Gtburbf
         e9/3+6O+qj3zzHmm0HMwAA4OgTN11uo1c3q6d+9Q3f38qnb4H11dXRJb1EHYQNhA2EDYQNhA2EDYQNhA
         2EDYQF/YwP/oi4vENcKYwwbCBsIGwgbCBsIGwgbCBsIGwgbMBgJAIgIUEbCwgbCBsIGwgbCBsIGwgbCB

@@ -458,6 +458,7 @@ namespace Transportation
             new Thread(new ThreadStart(routeTestRun)).Start();
             isAnimating = true;
         }
+<<<<<<< HEAD
 
         private void GoOut_Click(object sender, EventArgs e)
         {
@@ -465,6 +466,8 @@ namespace Transportation
 
             // TODO: Add the go out part.
         }
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
     }
   
 }

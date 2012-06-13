@@ -34,7 +34,10 @@
             this.button_Return = new System.Windows.Forms.Button();
             this.startPos = new System.Windows.Forms.Label();
             this.endPos = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.GoOut = new System.Windows.Forms.Button();
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +100,7 @@
             this.endPos.Size = new System.Drawing.Size(0, 22);
             this.endPos.TabIndex = 4;
             // 
+<<<<<<< HEAD
             // GoOut
             // 
             this.GoOut.Enabled = false;
@@ -108,13 +112,18 @@
             this.GoOut.UseVisualStyleBackColor = true;
             this.GoOut.Click += new System.EventHandler(this.GoOut_Click);
             // 
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             // RailSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 562);
+<<<<<<< HEAD
             this.Controls.Add(this.GoOut);
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             this.Controls.Add(this.endPos);
             this.Controls.Add(this.startPos);
             this.Controls.Add(this.button_Return);
@@ -138,6 +147,9 @@
         private System.Windows.Forms.Button button_Return;
         private System.Windows.Forms.Label startPos;
         private System.Windows.Forms.Label endPos;
+<<<<<<< HEAD
         private System.Windows.Forms.Button GoOut;
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
     }
 }

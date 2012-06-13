@@ -38,19 +38,30 @@
             // CardID
             // 
             this.CardID.BackColor = System.Drawing.SystemColors.MenuText;
+<<<<<<< HEAD
             this.CardID.Font = new System.Drawing.Font("SimSun", 12F);
+=======
+            this.CardID.Font = new System.Drawing.Font("宋体", 12F);
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             this.CardID.ForeColor = System.Drawing.SystemColors.Window;
             this.CardID.Location = new System.Drawing.Point(276, 219);
             this.CardID.Name = "CardID";
             this.CardID.Size = new System.Drawing.Size(252, 26);
             this.CardID.TabIndex = 0;
+<<<<<<< HEAD
             this.CardID.TextChanged += new System.EventHandler(this.CardID_TextChanged);
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+<<<<<<< HEAD
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+=======
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(321, 181);
             this.label1.Name = "label1";

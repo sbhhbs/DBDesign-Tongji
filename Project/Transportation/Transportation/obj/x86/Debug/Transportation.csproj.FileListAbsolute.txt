@@ -59,6 +59,7 @@ C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transporta
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationMainPage.resources
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\bin\Debug\Newtonsoft.Json.dll
 C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\bin\Debug\Newtonsoft.Json.xml
+<<<<<<< HEAD
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.exe
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.pdb
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\bin\Debug\Transportation.exe
@@ -73,3 +74,5 @@ C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\Transportation.TransportationMainPage.resources
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\fog\Desktop\DBDesign-Tongji\Project\Transportation\Transportation\obj\x86\Debug\GenerateResource.write.1.tlog
+=======
+>>>>>>> 3dede48173b97823b4add529b8d2a73ab8286c26
