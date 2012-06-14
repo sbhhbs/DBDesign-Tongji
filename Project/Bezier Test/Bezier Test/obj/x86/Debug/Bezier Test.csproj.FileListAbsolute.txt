@@ -1,0 +1,13 @@
+D:\Codes\General\Bezier Test\Bezier Test\bin\Debug\Bezier Test.exe
+D:\Codes\General\Bezier Test\Bezier Test\bin\Debug\Bezier Test.pdb
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier_Test.Form1.resources
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier_Test.Properties.Resources.resources
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.exe
+D:\Codes\General\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.pdb
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.exe
+C:\Users\GodBlessedMay\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.pdb
+C:\Users\fog\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.exe
+C:\Users\fog\Desktop\DBDesign-Tongji\Project\Bezier Test\Bezier Test\obj\x86\Debug\Bezier Test.pdb

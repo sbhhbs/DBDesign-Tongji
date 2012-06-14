@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0128D565-AB28-411F-97BE-2F5E0B849D50}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>crazy</RootNamespace>
+    <AssemblyName>crazy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddMoneyHttpRequestHandler.cs" />
+    <Compile Include="BuyGoodsHttpRequestHandler.cs" />
+    <Compile Include="CardInActionHttpRequestHandler.cs" />
+    <Compile Include="ChangeTypeHttpRequestHandler.cs" />
+    <Compile Include="GetCardInformationHttpRequestHandler.cs" />
+    <Compile Include="GetTripRecordsAddMoneyHttpRequestHandler.cs" />
+    <Compile Include="GetUserInformationHttpRequestHandler.cs" />
+    <Compile Include="InStationHttpRequestHandler.cs" />
+    <Compile Include="ManagermentActionHttpRequestHandler.cs" />
+    <Compile Include="BelongsTo.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="ConnectServer.cs" />
+    <Compile Include="Goods.cs" />
+    <Compile Include="HttpRequestHandler.cs" />
+    <Compile Include="HttpResourceLocator.cs" />
+    <Compile Include="HttpServer.cs" />
+    <Compile Include="InvalidHttpRequestHandler.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="ManagermentAction.cs" />
+    <Compile Include="OutStationHttpRequestHandler.cs" />
+    <Compile Include="QueryHttpRequestHandler.cs" />
+    <Compile Include="RegisterHttpRequestHandler.cs" />
+    <Compile Include="Near.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseRecord.cs" />
+    <Compile Include="ReportLossHttpRequestHandler.cs" />
+    <Compile Include="routequery.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="TripRecords.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

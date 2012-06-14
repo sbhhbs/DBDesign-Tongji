@@ -34,8 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bezier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BezierCurve.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BezierRoute.cs" />
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,12 +81,14 @@
     <Compile Include="Rail_Dialog.Designer.cs">
       <DependentUpon>Rail_Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransportationView.cs">
+    <Compile Include="ResourceClass.cs" />
+    <Compile Include="TransportationMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransportationView.Designer.cs">
-      <DependentUpon>TransportationView.cs</DependentUpon>
+    <Compile Include="TransportationMainPage.Designer.cs">
+      <DependentUpon>TransportationMainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,8 +107,8 @@
     <EmbeddedResource Include="Rail_Dialog.resx">
       <DependentUpon>Rail_Dialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransportationView.resx">
-      <DependentUpon>TransportationView.cs</DependentUpon>
+    <EmbeddedResource Include="TransportationMainPage.resx">
+      <DependentUpon>TransportationMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

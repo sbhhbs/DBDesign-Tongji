@@ -34,6 +34,8 @@
             this.change = new System.Windows.Forms.Button();
             this.charge = new System.Windows.Forms.Button();
             this.balanceQuery = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelRecharge = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // historyQuery
@@ -90,12 +92,33 @@
             this.balanceQuery.UseVisualStyleBackColor = true;
             this.balanceQuery.Click += new System.EventHandler(this.balanceQuery_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(67, 52);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(269, 26);
+            this.textBox1.TabIndex = 14;
+            // 
+            // panelRecharge
+            // 
+            this.panelRecharge.BackColor = System.Drawing.Color.Transparent;
+            this.panelRecharge.BackgroundImage = global::Admin.Properties.Resources.Right_ChangeType;
+            this.panelRecharge.Location = new System.Drawing.Point(441, 25);
+            this.panelRecharge.Name = "panelRecharge";
+            this.panelRecharge.Size = new System.Drawing.Size(335, 532);
+            this.panelRecharge.TabIndex = 15;
+            // 
             // ServiceChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 602);
+            this.Controls.Add(this.panelRecharge);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.historyQuery);
             this.Controls.Add(this.lost);
             this.Controls.Add(this.change);
@@ -107,6 +130,7 @@
             this.Text = "ServiceChange";
             this.Load += new System.EventHandler(this.ServiceChange_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +141,7 @@
         private System.Windows.Forms.Button change;
         private System.Windows.Forms.Button charge;
         private System.Windows.Forms.Button balanceQuery;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panelRecharge;
     }
 }

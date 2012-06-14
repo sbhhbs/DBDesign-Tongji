@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Transportation
 {
@@ -23,16 +24,28 @@ namespace Transportation
 
         private void railSystemButton_Click(object sender, EventArgs e)
         {
-            RailSystem railSystem = new RailSystem();
-            railSystem.Show();
-            this.Hide();
+
+            new Thread(new ThreadStart(showRailSystem)).Start();
+            Close();
         }
 
-        private void transportSystemButton_Click(object sender, EventArgs e)
+        private void showRailSystem() 
         {
-            TransportationView transportation = new TransportationView();
-            transportation.Show();
-            this.Hide();
+            RailSystem railSystem = new RailSystem();
+            railSystem.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Thread(new ThreadStart(back)).Start();
+            Close();
+        }
+
+        private void back()
+        {
+            new TransportationMainPage().ShowDialog();
+        }
+
+
     }
 }

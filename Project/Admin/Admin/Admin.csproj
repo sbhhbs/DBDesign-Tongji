@@ -34,8 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v2.0.50727\System.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemListClass.cs" />
+    <Compile Include="JsonToClass.cs" />
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,36 +62,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceCardLost.cs">
+    <Compile Include="CustomerService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceCardLost.Designer.cs">
-      <DependentUpon>ServiceCardLost.cs</DependentUpon>
+    <Compile Include="CustomerService.Designer.cs">
+      <DependentUpon>CustomerService.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceChange.cs">
+    <Compile Include="ResourceClass.cs" />
+    <Compile Include="ServiceInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceChange.Designer.cs">
-      <DependentUpon>ServiceChange.cs</DependentUpon>
+    <Compile Include="ServiceInfo.Designer.cs">
+      <DependentUpon>ServiceInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceHistory.cs">
+    <Compile Include="ShoppingView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServiceHistory.Designer.cs">
-      <DependentUpon>ServiceHistory.cs</DependentUpon>
+    <Compile Include="ShoppingView.Designer.cs">
+      <DependentUpon>ShoppingView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceRecharge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceRecharge.Designer.cs">
-      <DependentUpon>ServiceRecharge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Services.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Services.Designer.cs">
-      <DependentUpon>Services.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,21 +93,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ServiceCardLost.resx">
-      <DependentUpon>ServiceCardLost.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerService.resx">
+      <DependentUpon>CustomerService.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceChange.resx">
-      <DependentUpon>ServiceChange.cs</DependentUpon>
+    <EmbeddedResource Include="ServiceInfo.resx">
+      <DependentUpon>ServiceInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServiceHistory.resx">
-      <DependentUpon>ServiceHistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ServiceRecharge.resx">
-      <DependentUpon>ServiceRecharge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Services.resx">
-      <DependentUpon>Services.cs</DependentUpon>
+    <EmbeddedResource Include="ShoppingView.resx">
+      <DependentUpon>ShoppingView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,6 +114,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Right-Recharge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Right-History.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Right-ChangeType.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Right-CardLost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\CommandOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\shopping_view.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,7 +11,7 @@ namespace Transportation
 {
     public partial class Rail_Dialog : Form
     {
-       // HashTable pointTable[] = new HashTable;;
+        // HashTable pointTable[] = new HashTable;;
         public Rail_Dialog()
         {
             InitializeComponent();
@@ -19,52 +19,24 @@ namespace Transportation
 
         private void button_In_Click(object sender, EventArgs e)
         {
-        //    StartPosition = pointTable[currentPoint];
-            this.DialogResult = DialogResult.Cancel;
+            //    StartPosition = pointTable[currentPoint];
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
 
         public object currentPoint { get; set; }
 
         private void button_Out_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-        
+            this.DialogResult = DialogResult.No;
+            this.Close();
         }
-        
-    }
-      class Factor
-    {
-        private static Dialog dialog = null;
 
-        public static Dialog createDialog()
+        private void Rail_Dialog_Load(object sender, EventArgs e)
         {
-            if(dialog == null)
-            {
-                dialog = new Dialog();
-            }
-            return dialog;
+
         }
-    }
-    class Dialog:Form
-    {
-        Rail_Dialog rail_dialog = new Rail_Dialog();
-        public Dialog()
-        {
-           //Rail_Dialog rail_dialog = new Rail_Dialog();
-            //rail_dialog.show();
-        }
-        public void show() 
-        {
-            rail_dialog.Show();
-        }
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            rail_dialog.Hide();
-        }
-        public void hide()
-        {
-            rail_dialog.Hide();
-        }
-            
+       
+
     }
 }

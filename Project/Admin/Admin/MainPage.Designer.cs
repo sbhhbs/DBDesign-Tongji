@@ -29,19 +29,41 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
-            this.go = new System.Windows.Forms.Button();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // go
+            // textBoxUserName
             // 
-            this.go.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.go.Image = ((System.Drawing.Image)(resources.GetObject("go.Image")));
-            this.go.Location = new System.Drawing.Point(152, 336);
-            this.go.Name = "go";
-            this.go.Size = new System.Drawing.Size(72, 28);
-            this.go.TabIndex = 1;
-            this.go.UseVisualStyleBackColor = true;
-            this.go.Click += new System.EventHandler(this.go_Click);
+            this.textBoxUserName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBoxUserName.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxUserName.Location = new System.Drawing.Point(261, 213);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(283, 21);
+            this.textBoxUserName.TabIndex = 0;
+            this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.MenuText;
+            this.textBoxPassword.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxPassword.Location = new System.Drawing.Point(259, 293);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(285, 21);
+            this.textBoxPassword.TabIndex = 1;
+            //this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonOK.BackgroundImage")));
+            this.buttonOK.Location = new System.Drawing.Point(365, 347);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(73, 29);
+            this.buttonOK.TabIndex = 2;
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // MainPage
             // 
@@ -49,18 +71,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 602);
-            this.Controls.Add(this.go);
+            this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUserName);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "管理员";
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
-
         #endregion
 
-        private System.Windows.Forms.Button go;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Button buttonOK;
     }
 }
 

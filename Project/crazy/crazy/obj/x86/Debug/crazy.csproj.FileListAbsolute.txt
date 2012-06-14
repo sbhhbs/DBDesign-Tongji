@@ -1,0 +1,14 @@
+c:\users\fog\documents\visual studio 2010\Projects\crazy\crazy\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\fog\documents\visual studio 2010\Projects\crazy\crazy\bin\Debug\crazy.exe
+c:\users\fog\documents\visual studio 2010\Projects\crazy\crazy\bin\Debug\crazy.pdb
+c:\users\fog\documents\visual studio 2010\Projects\crazy\crazy\obj\x86\Debug\crazy.exe
+c:\users\fog\documents\visual studio 2010\Projects\crazy\crazy\obj\x86\Debug\crazy.pdb
+C:\Users\fog\Documents\Visual Studio 2010\Projects\crazy\crazy\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fog\Documents\Visual Studio 2010\Projects\crazy\crazy\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\obj\x86\Debug\crazy.exe
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\obj\x86\Debug\crazy.pdb
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\bin\Debug\crazy.exe
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\bin\Debug\crazy.pdb
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fog\Desktop\database试卷\DBDesign-Tongji\Project\crazy\crazy\bin\Debug\Newtonsoft.Json.xml
